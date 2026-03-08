@@ -78,10 +78,10 @@ const FooterSection = () => {
           className="mt-8 text-center space-y-2"
         >
           <p className="text-terminal-comment text-[10px]">
-            /* Community: Active contributor to church media tech &amp; live event broadcasting */
+            /* Community: Active in STEM volunteering and open source community impact projects */
           </p>
           <p className="text-terminal-line-number text-[10px]">
-            &copy; {new Date().getFullYear()} Kojo Nhyira Mante-Dankwa — Built with precision.
+            &copy; {new Date().getFullYear()} Kojo Nhyira Mante-Dankwa
           </p>
           <p className="text-terminal-line-number text-[10px]">
             Process exited with code <span className="text-terminal-green">0</span>
