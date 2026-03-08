@@ -101,11 +101,23 @@ const ExperienceSection = () => {
                       </div>
                     </div>
                     <span className="text-terminal-comment text-xs font-mono flex items-center gap-1">
-                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="opacity-40">
-                        <circle cx="6" cy="6" r="5" stroke="currentColor" strokeWidth="1" />
-                        <path d="M6 3v3l2 1" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
-                      </svg>
-                      {exp.period}
+                      {(exp as any).current ? (
+                        <span className="flex items-center gap-1">
+                          <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-terminal-green opacity-75" />
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-terminal-green" />
+                          </span>
+                          <span className="text-terminal-green">Current</span>
+                        </span>
+                      ) : (
+                        <>
+                          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="opacity-40">
+                            <circle cx="6" cy="6" r="5" stroke="currentColor" strokeWidth="1" />
+                            <path d="M6 3v3l2 1" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
+                          </svg>
+                          {exp.period}
+                        </>
+                      )}
                     </span>
                   </div>
                   <p className="text-foreground/70 text-sm leading-relaxed mb-3">{exp.description}</p>

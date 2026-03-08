@@ -14,6 +14,13 @@ const skillIcons: Record<string, JSX.Element> = {
       <path d="M4 7l2 2-2 2M7 11h3" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
     </svg>
   ),
+  frontend: (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-terminal-magenta">
+      <rect x="1" y="2" width="14" height="12" rx="1" stroke="currentColor" strokeWidth="1" />
+      <path d="M1 5h14" stroke="currentColor" strokeWidth="0.8" />
+      <path d="M5 8l2 2-2 2M9 8h3" stroke="currentColor" strokeWidth="0.8" strokeLinecap="round" />
+    </svg>
+  ),
   data_infrastructure: (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-terminal-amber">
       <ellipse cx="8" cy="4" rx="6" ry="2" stroke="currentColor" strokeWidth="1" />
