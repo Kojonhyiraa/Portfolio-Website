@@ -83,7 +83,7 @@ const HeroSection = ({ onTerminalOpen }: HeroProps) => {
             <path d="M2 2a1 1 0 011-1h6l4 4v9a1 1 0 01-1 1H3a1 1 0 01-1-1V2z" stroke="currentColor" strokeWidth="1" />
             <path d="M9 1v4h4" stroke="currentColor" strokeWidth="1" />
           </svg>
-          kojo-mante-dankwa/portfolio/hero.java
+          kojo-mante-dankwa/portfolio/main.java
         </motion.div>
 
         <AnimatePresence mode="wait">
