@@ -17,15 +17,17 @@ const ScrollReveal = ({ children, className = "", direction = "up" }: ScrollReve
   const v = variants[direction];
 
   return (
-    <motion.div
-      initial={v.initial}
-      whileInView={v.animate}
-      viewport={{ once: false, amount: 0.2, margin: "-40px" }}
-      transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-      className={className}
-    >
-      {children}
-    </motion.div>
+    <div className="overflow-hidden">
+      <motion.div
+        initial={v.initial}
+        whileInView={v.animate}
+        viewport={{ once: false, amount: 0.2, margin: "-40px" }}
+        transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+        className={className}
+      >
+        {children}
+      </motion.div>
+    </div>
   );
 };
 
