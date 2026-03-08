@@ -51,7 +51,7 @@ const ExperienceSection = () => {
           <motion.div
             initial={{ height: 0 }}
             whileInView={{ height: "100%" }}
-            viewport={{ once: true }}
+            viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] as const }}
             className="absolute left-[7px] top-0 w-px bg-gradient-to-b from-primary via-primary/50 to-transparent hidden sm:block"
           />
