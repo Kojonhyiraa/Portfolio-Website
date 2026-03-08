@@ -1,13 +1,23 @@
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect, useCallback } from "react";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import SpaceScene from "./SpaceScene";
+
+const vp = { once: false, amount: 0.3 } as const;
 
 const HeroSection = () => {
   const headline = "> Architecting Robust Backend Systems & Scalable Infrastructure";
   const [displayText, setDisplayText] = useState("");
   const [showCursor, setShowCursor] = useState(true);
+  const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef, { once: false, amount: 0.4 });
 
+  // Restart typewriter whenever hero scrolls back into view
   useEffect(() => {
+    if (!isInView) {
+      setDisplayText("");
+      return;
+    }
     let i = 0;
     const timer = setInterval(() => {
       if (i <= headline.length) {
@@ -18,7 +28,7 @@ const HeroSection = () => {
       }
     }, 35);
     return () => clearInterval(timer);
-  }, []);
+  }, [isInView]);
 
   useEffect(() => {
     const cursorTimer = setInterval(() => setShowCursor((prev) => !prev), 530);
@@ -26,7 +36,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-3 sm:px-6 lg:px-8 pt-14 sm:pt-16 relative overflow-hidden">
+    <section ref={sectionRef} className="min-h-screen flex items-center justify-center px-3 sm:px-6 lg:px-8 pt-14 sm:pt-16 relative overflow-hidden">
       {/* 3D Space Background */}
       <div className="absolute inset-0 z-0">
         <SpaceScene />
@@ -61,11 +71,11 @@ const HeroSection = () => {
       <div className="max-w-4xl w-full relative z-10">
         <motion.div
           initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={vp}
+          transition={{ duration: 0.6, delay: 0.1 }}
           className="mb-2 text-terminal-comment text-xs sm:text-sm flex items-center gap-2"
         >
-          {/* File icon SVG */}
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="opacity-60">
             <path d="M2 2a1 1 0 011-1h6l4 4v9a1 1 0 01-1 1H3a1 1 0 01-1-1V2z" stroke="currentColor" strokeWidth="1" />
             <path d="M9 1v4h4" stroke="currentColor" strokeWidth="1" />
@@ -75,33 +85,38 @@ const HeroSection = () => {
 
         <motion.div
           initial={{ opacity: 0, y: 20, scale: 0.98 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={vp}
+          transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
           className="bg-card/80 backdrop-blur-xl border border-border rounded-lg p-3 sm:p-6 md:p-8 mb-4 sm:mb-6 shadow-[0_0_60px_-15px_hsl(180,100%,50%,0.1)]"
         >
           <div className="flex items-center gap-2 mb-6">
             <motion.span
               initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.7, type: "spring", stiffness: 400 }}
+              whileInView={{ scale: 1 }}
+              viewport={vp}
+              transition={{ delay: 0.3, type: "spring", stiffness: 400 }}
               className="w-3 h-3 rounded-full bg-destructive/80"
             />
             <motion.span
               initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.8, type: "spring", stiffness: 400 }}
+              whileInView={{ scale: 1 }}
+              viewport={vp}
+              transition={{ delay: 0.4, type: "spring", stiffness: 400 }}
               className="w-3 h-3 rounded-full bg-terminal-amber/80"
             />
             <motion.span
               initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.9, type: "spring", stiffness: 400 }}
+              whileInView={{ scale: 1 }}
+              viewport={vp}
+              transition={{ delay: 0.5, type: "spring", stiffness: 400 }}
               className="w-3 h-3 rounded-full bg-terminal-green/80"
             />
             <motion.span
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1 }}
+              whileInView={{ opacity: 1 }}
+              viewport={vp}
+              transition={{ delay: 0.6 }}
               className="ml-4 text-terminal-comment text-xs"
             >
               main.java — Backend Portfolio
@@ -110,8 +125,9 @@ const HeroSection = () => {
 
           <motion.h2
             initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.5 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={vp}
+            transition={{ delay: 0.3, duration: 0.5 }}
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tight mb-4"
           >
             Kojo Nhyira<br className="sm:hidden" />{" "}
@@ -129,8 +145,9 @@ const HeroSection = () => {
 
           <motion.p
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2, duration: 0.6 }}
+            whileInView={{ opacity: 1 }}
+            viewport={vp}
+            transition={{ delay: 0.8, duration: 0.6 }}
             className="text-foreground/70 text-xs sm:text-sm md:text-base leading-relaxed mb-6 max-w-2xl"
           >
             <span className="text-terminal-magenta">Backend Engineer</span> specializing
@@ -140,8 +157,9 @@ const HeroSection = () => {
 
           <motion.div
             initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.5, duration: 0.5 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={vp}
+            transition={{ delay: 1, duration: 0.5 }}
             className="flex flex-col sm:flex-row gap-3 sm:gap-4"
           >
             <a
@@ -167,8 +185,9 @@ const HeroSection = () => {
 
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.8 }}
+          whileInView={{ opacity: 1 }}
+          viewport={vp}
+          transition={{ delay: 1.2 }}
           className="text-terminal-line-number text-xs font-mono flex items-center gap-2"
         >
           <span className="text-terminal-comment">// Status:</span>
