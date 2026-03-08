@@ -44,7 +44,7 @@ const HeroSection = ({ onTerminalOpen }: HeroProps) => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="min-h-screen flex items-center justify-center px-3 sm:px-6 lg:px-8 pt-14 sm:pt-16 relative overflow-hidden">
+    <section ref={sectionRef} className="min-h-screen flex items-center justify-center px-3 sm:px-6 lg:px-8 pt-14 sm:pt-16 relative overflow-hidden bg-white">
       <div className="absolute inset-0 z-0">
         <CircuitBackground />
       </div>
