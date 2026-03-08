@@ -4,7 +4,7 @@ import { ArcRings } from "./SvgDecorations";
 
 const socialLinks = [
   { href: "https://github.com/Kojonhyiraa", label: "GitHub", icon: Github },
-  { href: "https://www.linkedin.com/in/kojo-nhyira", label: "LinkedIn", icon: Linkedin },
+  { href: "https://www.linkedin.com/in/kojo-nhyira/", label: "LinkedIn", icon: Linkedin },
   { href: "mailto:kojo.mantedankwa@gmail.com", label: "Email", icon: Mail },
 ];
 
