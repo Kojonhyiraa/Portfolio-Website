@@ -70,7 +70,7 @@ const SkillsSection = () => {
             variants={container}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, margin: "-40px" }}
+            viewport={{ once: false, amount: 0.2, margin: "-40px" }}
           >
             <code>
               <motion.span variants={line} className="block">

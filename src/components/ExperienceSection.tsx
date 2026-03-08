@@ -70,7 +70,7 @@ const ExperienceSection = () => {
                 <motion.div
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false, amount: 0.2 }}
                   transition={{ delay: i * 0.25 + 0.3, type: "spring", stiffness: 300 }}
                   className="hidden sm:block absolute left-0 top-3 w-[15px] h-[15px] rounded-full border-2 border-primary bg-background z-10"
                 >

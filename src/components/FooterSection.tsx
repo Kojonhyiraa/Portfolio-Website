@@ -76,7 +76,7 @@ const FooterSection = () => {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, amount: 0.3 }}
           transition={{ delay: 0.6 }}
           className="mt-8 text-center space-y-2"
         >
