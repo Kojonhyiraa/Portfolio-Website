@@ -7,6 +7,17 @@ const projects = [
     description:
       "A lightweight middleware built with Jakarta EE to manage service availability for an online payment API. Features a complex database schema with efficient controller logic for routing, throttling, and availability checks.",
     highlights: ["Middleware Architecture", "Database Schema Design", "Payment API", "Controller Logic"],
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" className="text-terminal-cyan">
+        <rect x="2" y="6" width="28" height="20" rx="2" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M2 12h28" stroke="currentColor" strokeWidth="1" />
+        <path d="M10 18h12" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
+        <path d="M12 22h8" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
+        <circle cx="6" cy="9" r="1" fill="hsl(0,84%,60%)" />
+        <circle cx="10" cy="9" r="1" fill="hsl(45,100%,55%)" />
+        <circle cx="14" cy="9" r="1" fill="hsl(120,100%,45%)" />
+      </svg>
+    ),
   },
   {
     name: "Apex Bank",
@@ -14,31 +25,62 @@ const projects = [
     description:
       "A robust banking application showcasing strict Object-Oriented Programming principles, secure data handling, and scalable database architecture. Implements account management, transaction processing, and comprehensive audit logging.",
     highlights: ["OOP Principles", "Secure Data Handling", "Scalable DB Architecture", "Transaction Processing"],
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" className="text-terminal-amber">
+        <path d="M16 2L4 8v6c0 7.7 5.1 14.9 12 16 6.9-1.1 12-8.3 12-16V8L16 2z" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M12 16l3 3 5-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
   },
 ];
 
 const cardVariant = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 40, rotateX: 4 },
   show: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.2, duration: 0.45, ease: [0.25, 0.1, 0.25, 1] as const },
+    rotateX: 0,
+    transition: { delay: i * 0.2, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const },
   }),
 };
 
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-card/30">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-lg sm:text-xl font-bold mb-2">
+    <section id="projects" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Hex grid SVG background */}
+      <svg className="absolute left-1/2 top-0 -translate-x-1/2 w-[600px] h-[600px] opacity-[0.02]" viewBox="0 0 600 600" fill="none">
+        {[0, 1, 2, 3].map(row =>
+          [0, 1, 2, 3, 4].map(col => {
+            const x = col * 120 + (row % 2 ? 60 : 0) + 30;
+            const y = row * 100 + 50;
+            return (
+              <polygon
+                key={`${row}-${col}`}
+                points={`${x},${y - 40} ${x + 35},${y - 20} ${x + 35},${y + 20} ${x},${y + 40} ${x - 35},${y + 20} ${x - 35},${y - 20}`}
+                stroke="hsl(120,100%,45%)"
+                strokeWidth="0.5"
+              />
+            );
+          })
+        )}
+      </svg>
+
+      <div className="max-w-4xl mx-auto relative">
+        <motion.h2
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-lg sm:text-xl font-bold mb-2"
+        >
           <span className="text-terminal-comment">// </span>
           <span className="text-terminal-green">Deployed Architecture</span>
           <span className="text-foreground"> / </span>
           <span className="text-terminal-green">Featured Projects</span>
-        </h2>
+        </motion.h2>
         <p className="text-terminal-comment text-xs mb-8">ls -la ~/projects/</p>
 
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2" style={{ perspective: "800px" }}>
           {projects.map((project, i) => (
             <motion.div
               key={project.name}
@@ -47,10 +89,12 @@ const ProjectsSection = () => {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: "-40px" }}
-              className="bg-terminal-panel border border-terminal rounded-md overflow-hidden hover:border-terminal-green/30 transition-colors group"
+              whileHover={{ y: -4, transition: { duration: 0.25 } }}
+              className="bg-card/80 backdrop-blur-sm border border-border rounded-lg overflow-hidden hover:border-terminal-green/30 hover:shadow-[0_8px_40px_-10px_hsl(120,100%,45%,0.1)] transition-all duration-400 group"
             >
-              <div className="flex items-center gap-1 px-4 py-2 bg-background/50 border-b border-terminal">
-                <div className="flex items-center gap-2 px-3 py-1 bg-terminal-panel rounded-t text-xs">
+              {/* File tab bar */}
+              <div className="flex items-center gap-1 px-4 py-2.5 bg-background/50 border-b border-border">
+                <div className="flex items-center gap-2 px-3 py-1 bg-card rounded-t text-xs">
                   <span className="text-terminal-green">●</span>
                   <span className="text-foreground/80">{project.name}.java</span>
                 </div>
@@ -58,15 +102,20 @@ const ProjectsSection = () => {
               </div>
 
               <div className="p-5 sm:p-6">
-                <h3 className="text-terminal-cyan text-base font-semibold mb-3 group-hover:text-terminal-green transition-colors">
-                  {project.name}
-                </h3>
+                <div className="flex items-start gap-3 mb-4">
+                  <div className="shrink-0 opacity-60 group-hover:opacity-100 transition-opacity">
+                    {project.icon}
+                  </div>
+                  <h3 className="text-terminal-cyan text-lg font-semibold group-hover:text-terminal-green transition-colors pt-1">
+                    {project.name}
+                  </h3>
+                </div>
                 <p className="text-foreground/70 text-sm leading-relaxed mb-4">{project.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {project.highlights.map((h) => (
                     <span
                       key={h}
-                      className="text-[10px] px-2 py-0.5 rounded bg-terminal-green/10 text-terminal-green border border-terminal-green/20"
+                      className="text-[10px] px-2.5 py-1 rounded-full bg-terminal-green/8 text-terminal-green border border-terminal-green/20 font-medium"
                     >
                       {h}
                     </span>
