@@ -70,7 +70,7 @@ const CTASection = () => {
           {showCal && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 580 }}
+              animate={{ opacity: 1, height: 420 }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
               className="mt-8 rounded-lg overflow-hidden border border-border/30 bg-background"

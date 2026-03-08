@@ -232,13 +232,13 @@ const HeroSection = ({ onTerminalOpen }: HeroProps) => {
                           <span className="text-terminal-comment">$</span> Execute: View_Projects
                         </a>
                         <a
-                          href="#"
+                          href="#cta"
                           className="group inline-flex items-center gap-2 bg-accent/10 border border-accent/30 text-accent px-5 py-2.5 rounded text-sm hover:bg-accent/20 hover:shadow-[0_0_20px_-5px_hsl(45,100%,55%,0.3)] transition-all duration-300"
                         >
                           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="opacity-60 group-hover:opacity-100 transition-opacity">
-                            <path d="M6 2v6M3 5l3 3 3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                            <path d="M4 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                           </svg>
-                          <span className="text-terminal-comment">$</span> Download: Kojo_CV.pdf
+                          <span className="text-terminal-comment">$</span> Schedule: Meeting
                         </a>
                       </motion.div>
                     </div>
