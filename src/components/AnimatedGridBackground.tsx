@@ -22,7 +22,7 @@ const AnimatedGridBackground = () => {
 
     let animationId: number;
     let cells: Cell[] = [];
-    const CELL_SIZE = 60;
+    const CELL_SIZE = 40;
     let cols = 0;
     let rows = 0;
     let time = 0;
