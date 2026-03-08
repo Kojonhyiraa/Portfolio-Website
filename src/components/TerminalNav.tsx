@@ -26,7 +26,7 @@ const TerminalNav = () => {
               backend.engineer
             </span>
           </div>
-        </a>
+        </Link>
 
         {/* Desktop nav */}
         <div className="hidden sm:flex items-center gap-1">
