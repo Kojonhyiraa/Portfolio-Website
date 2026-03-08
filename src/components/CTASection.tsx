@@ -86,18 +86,6 @@ const CTASection = () => {
         </div>
       </section>
 
-      {/* Preloaded Cal (hidden until opened) */}
-      <div className="fixed -left-[9999px] top-0 w-[800px] h-[500px] pointer-events-none" aria-hidden="true">
-        <Cal
-          calLink="kojo-nhyira-mante-dankwa-fzksxp/15min"
-          style={{ width: "100%", height: "100%", overflow: "auto" }}
-          config={{
-            layout: "month_view",
-            theme: "dark",
-          }}
-        />
-      </div>
-
       {/* Fullscreen Cal overlay */}
       <AnimatePresence>
         {showCal && (
