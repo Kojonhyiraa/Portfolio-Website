@@ -50,6 +50,15 @@
     --sidebar-border: 220 12% 16%;
     --sidebar-ring: 180 100% 50%;
   }
+
+  /* Light section tokens */
+  :root {
+    --section-light-bg: 0 0% 96%;
+    --section-light-fg: 220 15% 15%;
+    --section-light-card: 0 0% 100%;
+    --section-light-card-border: 220 12% 88%;
+    --section-light-muted: 215 15% 55%;
+  }
 }
 
 @layer base {
