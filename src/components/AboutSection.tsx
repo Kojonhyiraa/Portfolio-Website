@@ -5,8 +5,8 @@ import { RadialBurst, WaveArcs } from "./SvgDecorations";
 const AboutSection = () => {
   return (
     <section id="about" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      <RadialBurst className="absolute -right-16 -top-16 w-72 h-72 pointer-events-none" />
-      <WaveArcs className="absolute bottom-0 left-0 w-full h-32 pointer-events-none" />
+      <RadialBurst className="absolute -right-16 -top-16 w-72 h-72 pointer-events-none animate-slow-spin" />
+      <WaveArcs className="absolute bottom-0 left-0 w-full h-32 pointer-events-none animate-gentle-pulse" />
 
       <div className="max-w-4xl mx-auto relative">
         <motion.h2

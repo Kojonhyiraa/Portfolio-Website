@@ -51,8 +51,8 @@ const line = {
 const SkillsSection = () => {
   return (
     <section id="skills" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      <SlashLines className="absolute -left-10 top-0 w-48 h-full pointer-events-none" />
-      <Crosshair className="absolute -right-6 bottom-10 w-24 h-24 pointer-events-none" />
+      <SlashLines className="absolute -left-10 top-0 w-48 h-full pointer-events-none animate-float-slow" />
+      <Crosshair className="absolute -right-6 bottom-10 w-24 h-24 pointer-events-none animate-slow-spin" />
 
       <div className="max-w-4xl mx-auto relative">
         <motion.h2
