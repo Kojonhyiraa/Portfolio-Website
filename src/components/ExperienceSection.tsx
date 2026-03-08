@@ -3,18 +3,18 @@ import { ArcRings, OrbitDots } from "./SvgDecorations";
 
 const experiences = [
   {
-    role: "Backend Engineer",
+    role: "Software Engineer",
     company: "eTranzact Ghana",
-    period: "Current",
+    period: "",
     description:
       "Building fintech backend applications and USSD services powering digital payment infrastructure. Designing scalable APIs, integrating payment gateways, and developing high-availability transaction processing systems for enterprise clients.",
     tags: ["Fintech", "USSD", "Backend APIs", "Payment Systems"],
     current: true,
   },
   {
-    role: "Software Engineering Intern",
+    role: "Software Engineer",
     company: "SuperTech Ghana Limited",
-    period: "Sep — Nov 2024",
+    period: "",
     description:
       "Contributed to enterprise software development lifecycles, building and testing modules for production systems. Collaborated with senior engineers on scalable backend solutions and participated in code reviews and deployment pipelines.",
     tags: ["Java", "SDLC", "Enterprise"],
@@ -22,7 +22,7 @@ const experiences = [
   {
     role: "IT Support Intern",
     company: "Milife Insurance Ghana",
-    period: "Oct — Dec 2023",
+    period: "",
     description:
       "Provided system troubleshooting and operational support across the IT infrastructure. Diagnosed hardware/software issues and ensured uptime for critical business applications.",
     tags: ["Systems", "Troubleshooting", "Infrastructure"],
@@ -95,8 +95,8 @@ const ExperienceSection = () => {
                         <p className="text-terminal-green text-xs">@ {exp.company}</p>
                       </div>
                     </div>
-                    <span className="text-terminal-comment text-xs font-mono flex items-center gap-1">
-                      {(exp as any).current ? (
+                    {(exp as any).current && (
+                      <span className="text-terminal-comment text-xs font-mono flex items-center gap-1">
                         <span className="flex items-center gap-1">
                           <span className="relative flex h-2 w-2">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-terminal-green opacity-75" />
@@ -104,16 +104,8 @@ const ExperienceSection = () => {
                           </span>
                           <span className="text-terminal-green">Current</span>
                         </span>
-                      ) : (
-                        <>
-                          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="opacity-40">
-                            <circle cx="6" cy="6" r="5" stroke="currentColor" strokeWidth="1" />
-                            <path d="M6 3v3l2 1" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
-                          </svg>
-                          {exp.period}
-                        </>
-                      )}
-                    </span>
+                      </span>
+                    )}
                   </div>
                   <p className="text-foreground/70 text-sm leading-relaxed mb-3">{exp.description}</p>
                   <div className="flex flex-wrap gap-2">
