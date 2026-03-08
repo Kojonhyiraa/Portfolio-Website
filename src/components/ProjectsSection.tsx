@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { HexCluster, WaveArcs } from "./SvgDecorations";
 
 const projects = [
   {
