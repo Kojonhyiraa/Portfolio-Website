@@ -33,7 +33,7 @@ const AboutSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="bg-card/80 backdrop-blur-sm border border-border rounded-lg p-5 sm:p-8 shadow-[0_4px_30px_-10px_hsl(180,100%,50%,0.05)] hover:shadow-[0_4px_40px_-10px_hsl(180,100%,50%,0.1)] transition-shadow duration-500"
         >
