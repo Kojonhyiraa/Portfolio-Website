@@ -104,10 +104,12 @@ const ProjectsSection = () => {
           transition={{ duration: 0.5 }}
           className="text-lg sm:text-xl font-bold mb-2"
         >
-          <span className="text-terminal-comment">// </span>
-          <span className="text-terminal-green">Deployed Architecture</span>
-          <span className="text-foreground"> / </span>
-          <span className="text-terminal-green">Featured Projects</span>
+          <span className="text-terminal-green">console</span>
+          <span className="text-foreground">.</span>
+          <span className="text-terminal-green">log</span>
+          <span className="text-foreground">(</span>
+          <span className="text-terminal-amber">"Featured Projects"</span>
+          <span className="text-foreground">)</span>
         </motion.h2>
         <p className="text-terminal-comment text-xs mb-8">ls -la ~/projects/</p>
 
