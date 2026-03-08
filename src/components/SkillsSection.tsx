@@ -2,8 +2,9 @@ import { motion } from "framer-motion";
 
 const skills = {
   backend_frameworks: ["Java", "Jakarta EE", "Quarkus", "Python"],
-  data_infrastructure: ["RDBMS Architecture", "Schema Design", "MySQL", "Middleware Integration"],
-  security_systems: ["Network Penetration Testing", "Web Penetration Testing", "MATLAB", "Full-Stack Integration"],
+  frontend: ["React JS", "Framer Motion", "TypeScript", "Tailwind CSS"],
+  data_infrastructure: ["RDBMS Architecture", "Kubernetes", "AWS", "MySQL"],
+  security_systems: ["Network Penetration Testing", "Web Penetration Testing", "API Security"],
 };
 
 const skillIcons: Record<string, JSX.Element> = {
@@ -11,6 +12,13 @@ const skillIcons: Record<string, JSX.Element> = {
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-terminal-cyan">
       <rect x="1" y="3" width="14" height="10" rx="1" stroke="currentColor" strokeWidth="1" />
       <path d="M4 7l2 2-2 2M7 11h3" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
+    </svg>
+  ),
+  frontend: (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-terminal-magenta">
+      <rect x="1" y="2" width="14" height="12" rx="1" stroke="currentColor" strokeWidth="1" />
+      <path d="M1 5h14" stroke="currentColor" strokeWidth="0.8" />
+      <path d="M5 8l2 2-2 2M9 8h3" stroke="currentColor" strokeWidth="0.8" strokeLinecap="round" />
     </svg>
   ),
   data_infrastructure: (

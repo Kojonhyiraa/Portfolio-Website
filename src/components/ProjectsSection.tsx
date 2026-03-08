@@ -32,6 +32,37 @@ const projects = [
       </svg>
     ),
   },
+  {
+    name: "AquaSentinel",
+    lang: "Python / IoT",
+    description:
+      "An intelligent environmental monitoring system integrating IoT sensors with satellite imagery to detect and flag illegal mining activities in real time. Processes geospatial data streams, triggers automated alerts, and provides a dashboard for authorities to track environmental degradation patterns.",
+    highlights: ["IoT Integration", "Satellite Data Processing", "Real-time Alerts", "Geospatial Analysis"],
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" className="text-terminal-green">
+        <circle cx="16" cy="16" r="12" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M8 16c0-4.4 3.6-8 8-8" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2" />
+        <circle cx="16" cy="16" r="4" stroke="currentColor" strokeWidth="1" />
+        <circle cx="16" cy="16" r="1.5" fill="currentColor" />
+        <path d="M16 4v4M16 24v4M4 16h4M24 16h4" stroke="currentColor" strokeWidth="0.8" strokeLinecap="round" />
+      </svg>
+    ),
+  },
+  {
+    name: "StudyCart",
+    lang: "Full-Stack",
+    description:
+      "Empowering parents and schools with a seamless, digital bookshop experience. A full-stack e-commerce platform enabling users to browse, order, and manage school supplies from anywhere, anytime — with real-time inventory tracking and secure checkout flows.",
+    highlights: ["E-Commerce", "Inventory Management", "Secure Checkout", "School Integration"],
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" className="text-terminal-magenta">
+        <path d="M6 8h2l4 12h10l3-8H12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="14" cy="24" r="2" stroke="currentColor" strokeWidth="1.5" />
+        <circle cx="22" cy="24" r="2" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M18 4l-2 4h6l-2-4" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
+      </svg>
+    ),
+  },
 ];
 
 const cardVariant = {
