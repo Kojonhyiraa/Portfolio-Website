@@ -7,7 +7,7 @@ const CTASection = () => {
   const [showCal, setShowCal] = useState(false);
 
   return (
-    <section className="py-20 sm:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section id="cta" className="py-20 sm:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary/[0.03] blur-3xl" />
       </div>
@@ -70,7 +70,7 @@ const CTASection = () => {
           {showCal && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 580 }}
+              animate={{ opacity: 1, height: 420 }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
               className="mt-8 rounded-lg overflow-hidden border border-border/30 bg-background"
