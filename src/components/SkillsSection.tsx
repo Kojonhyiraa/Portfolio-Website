@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import TerminalWindow from "./TerminalWindow";
+import { SlashLines, Crosshair } from "./SvgDecorations";
 
 const skills = {
   backend_frameworks: ["Java", "Jakarta EE", "Quarkus", "Python"],
