@@ -44,11 +44,11 @@ const HeroSection = ({ onTerminalOpen }: HeroProps) => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="min-h-screen flex items-center justify-center px-3 sm:px-6 lg:px-8 pt-14 sm:pt-16 relative overflow-hidden bg-white">
+    <section ref={sectionRef} className="min-h-screen flex items-center justify-center px-3 sm:px-6 lg:px-8 pt-14 sm:pt-16 relative overflow-hidden">
       <div className="absolute inset-0 z-0">
         <CircuitBackground />
       </div>
-      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-white/30 via-white/60 to-white" />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-background/30 via-background/60 to-background" />
 
 
       <svg className="absolute top-16 left-4 z-[2] w-20 h-20 opacity-10" viewBox="0 0 80 80" fill="none">
@@ -69,7 +69,7 @@ const HeroSection = ({ onTerminalOpen }: HeroProps) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={vp}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="mb-2 text-gray-500 text-xs sm:text-sm flex items-center gap-2"
+          className="mb-2 text-terminal-comment text-xs sm:text-sm flex items-center gap-2"
         >
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="opacity-60">
             <path d="M2 2a1 1 0 011-1h6l4 4v9a1 1 0 01-1 1H3a1 1 0 01-1-1V2z" stroke="currentColor" strokeWidth="1" />
