@@ -109,13 +109,16 @@ const HeroSection = () => {
                   </div>
                 </div>
                 <button
-                  onClick={() => setTerminalState("open")}
+                  onClick={() => {
+                    setTerminalState("open");
+                    setLaunchLabel("restart");
+                  }}
                   className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 text-primary px-4 py-2 rounded text-xs hover:bg-primary/20 transition-all duration-300 hover:shadow-[0_0_15px_-5px_hsl(180,100%,50%,0.3)]"
                 >
                   <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
                     <polygon points="2,1 9,5 2,9" fill="currentColor" />
                   </svg>
-                  ./restart.sh
+                  ./{launchLabel}.sh
                 </button>
               </div>
             </motion.div>
