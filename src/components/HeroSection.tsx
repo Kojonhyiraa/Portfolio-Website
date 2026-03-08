@@ -8,7 +8,11 @@ const vp = { once: false, amount: 0.3 } as const;
 type TerminalState = "open" | "minimized" | "closed";
 type LaunchLabel = "start" | "restart";
 
-const HeroSection = () => {
+interface HeroProps {
+  onTerminalOpen?: () => void;
+}
+
+const HeroSection = ({ onTerminalOpen }: HeroProps) => {
   const headline = "> Architecting Robust Backend Systems & Scalable Infrastructure";
   const [displayText, setDisplayText] = useState("");
   const [showCursor, setShowCursor] = useState(true);
@@ -112,6 +116,7 @@ const HeroSection = () => {
                   onClick={() => {
                     setTerminalState("open");
                     setLaunchLabel("restart");
+                    onTerminalOpen?.();
                   }}
                   className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 text-primary px-4 py-2 rounded text-xs hover:bg-primary/20 transition-all duration-300 hover:shadow-[0_0_15px_-5px_hsl(180,100%,50%,0.3)]"
                 >
