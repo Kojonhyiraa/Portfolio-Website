@@ -79,7 +79,7 @@ const HeroSection = ({ onTerminalOpen }: HeroProps) => {
             >
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="text-terminal-cyan">
                       <path d="M4 6l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                       <line x1="10" y1="14" x2="16" y2="14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
