@@ -2,6 +2,15 @@ import { motion } from "framer-motion";
 
 const experiences = [
   {
+    role: "Backend Engineer",
+    company: "eTranzact Ghana",
+    period: "Current",
+    description:
+      "Building fintech backend applications and USSD services powering digital payment infrastructure. Designing scalable APIs, integrating payment gateways, and developing high-availability transaction processing systems for enterprise clients.",
+    tags: ["Fintech", "USSD", "Backend APIs", "Payment Systems"],
+    current: true,
+  },
+  {
     role: "Software Engineering Intern",
     company: "SuperTech Ghana Limited",
     period: "Sep — Nov 2024",

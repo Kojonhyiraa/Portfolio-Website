@@ -2,8 +2,9 @@ import { motion } from "framer-motion";
 
 const skills = {
   backend_frameworks: ["Java", "Jakarta EE", "Quarkus", "Python"],
-  data_infrastructure: ["RDBMS Architecture", "Schema Design", "MySQL", "Middleware Integration"],
-  security_systems: ["Network Penetration Testing", "Web Penetration Testing", "MATLAB", "Full-Stack Integration"],
+  frontend: ["React JS", "Framer Motion", "TypeScript", "Tailwind CSS"],
+  data_infrastructure: ["RDBMS Architecture", "Kubernetes", "AWS", "MySQL"],
+  security_systems: ["Network Penetration Testing", "Web Penetration Testing", "API Security"],
 };
 
 const skillIcons: Record<string, JSX.Element> = {
