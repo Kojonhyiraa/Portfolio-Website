@@ -79,8 +79,8 @@ const cardVariant = {
 const ProjectsSection = () => {
   return (
     <section id="projects" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      <HexCluster className="absolute -left-16 top-1/4 w-72 h-72 pointer-events-none animate-slow-spin-reverse" />
-      <WaveArcs className="absolute bottom-0 right-0 w-full h-28 pointer-events-none animate-gentle-pulse" />
+      <HexCluster className="absolute -left-16 top-1/4 w-72 h-72 pointer-events-none" />
+      <WaveArcs className="absolute bottom-0 right-0 w-full h-28 pointer-events-none" />
 
       <div className="max-w-4xl mx-auto relative">
         <motion.h2

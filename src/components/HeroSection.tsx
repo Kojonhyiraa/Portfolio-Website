@@ -46,9 +46,9 @@ const HeroSection = ({ onTerminalOpen }: HeroProps) => {
   return (
     <section ref={sectionRef} className="min-h-screen flex items-center justify-center px-3 sm:px-6 lg:px-8 pt-14 sm:pt-16 relative overflow-hidden">
       {/* SVG decorative elements */}
-      <ArcRings className="absolute -top-20 -right-20 w-[500px] h-[500px] pointer-events-none animate-slow-spin" />
-      <OrbitDots className="absolute bottom-10 -left-20 w-[350px] h-[350px] pointer-events-none animate-slow-spin-reverse" />
-      <Crosshair className="absolute top-24 left-8 w-28 h-28 pointer-events-none animate-gentle-pulse" />
+      <ArcRings className="absolute -top-20 -right-20 w-[500px] h-[500px] pointer-events-none" />
+      <OrbitDots className="absolute bottom-10 -left-20 w-[350px] h-[350px] pointer-events-none" />
+      <Crosshair className="absolute top-24 left-8 w-28 h-28 pointer-events-none" />
       <Crosshair className="absolute bottom-32 right-12 w-20 h-20 pointer-events-none rotate-45" />
 
       <div className="max-w-4xl w-full relative z-10">

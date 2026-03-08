@@ -11,7 +11,7 @@ const socialLinks = [
 const FooterSection = () => {
   return (
     <footer className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-border relative overflow-hidden">
-      <ArcRings className="absolute -left-24 -bottom-24 w-[400px] h-[400px] pointer-events-none rotate-180 animate-slow-spin" />
+      <ArcRings className="absolute -left-24 -bottom-24 w-[400px] h-[400px] pointer-events-none rotate-180" />
 
       <div className="max-w-4xl mx-auto relative">
         <motion.div
