@@ -84,8 +84,8 @@ const AnimatedGridBackground = () => {
 
         if (match) {
           const offset = isHorizontal ? cellCol : cellRow;
-          cell.targetOpacity = 0.06 + Math.random() * 0.12;
-          cell.delay = offset * 15;
+          cell.targetOpacity = 0.10 + Math.random() * 0.20;
+          cell.delay = offset * 8;
           cell.hue = 180;
         }
       });
