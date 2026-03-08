@@ -6,10 +6,14 @@ import { Link } from "react-router-dom";
 const TerminalNav = () => {
   const [open, setOpen] = useState(false);
 
+  const scrollTo = (id: string) => {
+    setOpen(false);
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
       <div className="max-w-5xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between h-12 sm:h-14">
-        {/* Signature logo */}
         <Link to="/" className="flex items-center gap-2.5 group">
           <div className="relative w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-terminal-cyan">
@@ -30,25 +34,22 @@ const TerminalNav = () => {
 
         {/* Desktop nav */}
         <div className="hidden sm:flex items-center gap-1">
-          <Link
-            to="/blog"
-            className="relative text-xs text-foreground/60 hover:text-terminal-cyan px-3 py-1.5 rounded-md hover:bg-primary/5 transition-all duration-300 flex items-center gap-1.5"
-          >
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="opacity-50">
-              <rect x="1" y="1" width="10" height="10" rx="1.5" stroke="currentColor" strokeWidth="1" />
-              <line x1="3" y1="4" x2="9" y2="4" stroke="currentColor" strokeWidth="0.8" />
-              <line x1="3" y1="6" x2="7" y2="6" stroke="currentColor" strokeWidth="0.8" />
-              <line x1="3" y1="8" x2="8" y2="8" stroke="currentColor" strokeWidth="0.8" />
-            </svg>
-            blog()
-          </Link>
+          {[
+            { label: "about()", id: "about" },
+            { label: "skills()", id: "skills" },
+            { label: "projects()", id: "projects" },
+            { label: "contact()", id: "contact" },
+          ].map((item) => (
+            <button
+              key={item.id}
+              onClick={() => scrollTo(item.id)}
+              className="relative text-xs text-foreground/60 hover:text-terminal-cyan px-3 py-1.5 rounded-md hover:bg-primary/5 transition-all duration-300"
+            >
+              {item.label}
+            </button>
+          ))}
           <div className="w-px h-4 bg-border mx-1" />
-          <a
-            href="#"
-            className="text-[10px] text-terminal-comment hover:text-primary/80 px-2 py-1 transition-colors"
-          >
-            v1.0.0
-          </a>
+          <span className="text-[10px] text-terminal-comment px-2 py-1">v1.0.0</span>
         </div>
 
         {/* Mobile toggle */}
@@ -72,19 +73,20 @@ const TerminalNav = () => {
             className="sm:hidden bg-background/95 backdrop-blur-xl border-b border-border overflow-hidden"
           >
             <div className="px-4 py-3 space-y-1">
-              <Link
-                to="/blog"
-                onClick={() => setOpen(false)}
-                className="flex items-center gap-2 text-xs text-foreground/60 hover:text-terminal-cyan py-2 px-2 rounded hover:bg-primary/5 transition-all"
-              >
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="opacity-50">
-                  <rect x="1" y="1" width="10" height="10" rx="1.5" stroke="currentColor" strokeWidth="1" />
-                  <line x1="3" y1="4" x2="9" y2="4" stroke="currentColor" strokeWidth="0.8" />
-                  <line x1="3" y1="6" x2="7" y2="6" stroke="currentColor" strokeWidth="0.8" />
-                  <line x1="3" y1="8" x2="8" y2="8" stroke="currentColor" strokeWidth="0.8" />
-                </svg>
-                blog()
-              </Link>
+              {[
+                { label: "about()", id: "about" },
+                { label: "skills()", id: "skills" },
+                { label: "projects()", id: "projects" },
+                { label: "contact()", id: "contact" },
+              ].map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollTo(item.id)}
+                  className="flex items-center gap-2 text-xs text-foreground/60 hover:text-terminal-cyan py-2 px-2 rounded hover:bg-primary/5 transition-all w-full text-left"
+                >
+                  {item.label}
+                </button>
+              ))}
             </div>
           </motion.div>
         )}

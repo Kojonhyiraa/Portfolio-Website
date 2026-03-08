@@ -26,7 +26,7 @@ const Index = () => {
   }, [lockScroll]);
 
   return (
-    <div className="min-h-screen bg-background scrollbar-thin scroll-smooth relative">
+    <div className="min-h-screen bg-background scrollbar-thin scroll-smooth relative overflow-x-hidden">
       <TerminalNav />
       <HeroSection onTerminalOpen={() => setTerminalOpened(true)} />
       <ScrollReveal direction="left"><AboutSection /></ScrollReveal>
