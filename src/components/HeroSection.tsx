@@ -45,23 +45,11 @@ const HeroSection = ({ onTerminalOpen }: HeroProps) => {
 
   return (
     <section ref={sectionRef} className="min-h-screen flex items-center justify-center px-3 sm:px-6 lg:px-8 pt-14 sm:pt-16 relative overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <CircuitBackground />
-      </div>
-      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-background/30 via-background/60 to-background" />
-
-
-      <svg className="absolute top-16 left-4 z-[2] w-20 h-20 opacity-10" viewBox="0 0 80 80" fill="none">
-        <path d="M0 40 L40 0 L80 40 L40 80Z" stroke="hsl(180,100%,50%)" strokeWidth="0.5" />
-        <circle cx="40" cy="40" r="15" stroke="hsl(180,100%,50%)" strokeWidth="0.5" />
-        <circle cx="40" cy="40" r="3" fill="hsl(180,100%,50%)" />
-      </svg>
-      <svg className="absolute bottom-20 right-4 z-[2] w-24 h-24 opacity-10" viewBox="0 0 96 96" fill="none">
-        <rect x="8" y="8" width="80" height="80" rx="4" stroke="hsl(45,100%,55%)" strokeWidth="0.5" />
-        <line x1="8" y1="48" x2="88" y2="48" stroke="hsl(45,100%,55%)" strokeWidth="0.3" />
-        <line x1="48" y1="8" x2="48" y2="88" stroke="hsl(45,100%,55%)" strokeWidth="0.3" />
-        <circle cx="48" cy="48" r="20" stroke="hsl(45,100%,55%)" strokeWidth="0.5" strokeDasharray="3 3" />
-      </svg>
+      {/* SVG decorative elements */}
+      <ArcRings className="absolute -top-20 -right-20 w-[500px] h-[500px] pointer-events-none" />
+      <OrbitDots className="absolute bottom-10 -left-20 w-[350px] h-[350px] pointer-events-none" />
+      <Crosshair className="absolute top-24 left-8 w-28 h-28 pointer-events-none" />
+      <Crosshair className="absolute bottom-32 right-12 w-20 h-20 pointer-events-none rotate-45" />
 
       <div className="max-w-4xl w-full relative z-10">
         <motion.div
