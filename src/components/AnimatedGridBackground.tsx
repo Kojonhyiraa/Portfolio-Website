@@ -65,8 +65,8 @@ const AnimatedGridBackground = () => {
         const dist = Math.hypot(cell.x - centerX, cell.y - centerY);
 
         if (dist < radius) {
-          cell.targetOpacity = 0.08 + Math.random() * 0.15;
-          cell.delay = dist * 0.3; // ripple delay based on distance
+          cell.targetOpacity = 0.12 + Math.random() * 0.25;
+          cell.delay = dist * 0.2;
           cell.hue = Math.random() > 0.6 ? 45 : 180;
         }
       }
