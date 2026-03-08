@@ -9,6 +9,7 @@ import ProcessSection from "@/components/ProcessSection";
 import CTASection from "@/components/CTASection";
 import FooterSection from "@/components/FooterSection";
 import ScrollReveal from "@/components/ScrollReveal";
+import AnimatedGridBackground from "@/components/AnimatedGridBackground";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const Index = () => {
