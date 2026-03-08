@@ -49,7 +49,7 @@ const AboutSection = () => {
             <motion.p
               initial={{ opacity: 0, x: -10 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, amount: 0.5 }}
               transition={{ duration: 0.4, delay: 0.3 }}
             >
               A results-driven <span className="text-terminal-cyan font-medium">Backend Software Engineer</span> with a{" "}
