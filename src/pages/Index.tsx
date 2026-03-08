@@ -26,7 +26,16 @@ const Index = () => {
   }, [lockScroll]);
 
   return (
-    <div className="min-h-screen bg-background scrollbar-thin scroll-smooth">
+    <div className="min-h-screen bg-background scrollbar-thin scroll-smooth relative">
+      {/* Global grid lines */}
+      <svg className="fixed inset-0 z-0 w-full h-full opacity-[0.07] pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="global-grid" width="60" height="60" patternUnits="userSpaceOnUse">
+            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="hsl(180,100%,50%)" strokeWidth="0.5" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#global-grid)" />
+      </svg>
       <TerminalNav />
       <HeroSection onTerminalOpen={() => setTerminalOpened(true)} />
       <ScrollReveal direction="left"><AboutSection /></ScrollReveal>

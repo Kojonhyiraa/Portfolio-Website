@@ -50,14 +50,6 @@ const HeroSection = ({ onTerminalOpen }: HeroProps) => {
       </div>
       <div className="absolute inset-0 z-[1] bg-gradient-to-b from-background/40 via-background/70 to-background" />
 
-      <svg className="absolute inset-0 z-[2] w-full h-full opacity-[0.04]" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="hsl(180,100%,50%)" strokeWidth="0.5" />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#grid)" />
-      </svg>
 
       <svg className="absolute top-16 left-4 z-[2] w-20 h-20 opacity-10" viewBox="0 0 80 80" fill="none">
         <path d="M0 40 L40 0 L80 40 L40 80Z" stroke="hsl(180,100%,50%)" strokeWidth="0.5" />
