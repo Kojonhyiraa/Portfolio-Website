@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import TerminalWindow from "./TerminalWindow";
 
 const skills = {
   backend_frameworks: ["Java", "Jakarta EE", "Quarkus", "Python"],
@@ -49,7 +50,6 @@ const line = {
 const SkillsSection = () => {
   return (
     <section id="skills" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Background decoration */}
       <svg className="absolute left-0 bottom-0 w-48 h-48 opacity-[0.03]" viewBox="0 0 200 200" fill="none">
         <path d="M0 200 L200 0" stroke="hsl(45,100%,55%)" strokeWidth="0.5" />
         <path d="M0 150 L150 0" stroke="hsl(45,100%,55%)" strokeWidth="0.5" />
@@ -72,9 +72,9 @@ const SkillsSection = () => {
         </motion.h2>
         <p className="text-terminal-comment text-xs mb-8">cat tech_stack.json</p>
 
-        <div className="bg-card/80 backdrop-blur-sm border border-border rounded-lg p-5 sm:p-8 overflow-x-auto shadow-[0_4px_30px_-10px_hsl(180,100%,50%,0.05)] hover:shadow-[0_4px_40px_-10px_hsl(180,100%,50%,0.1)] transition-shadow duration-500">
+        <TerminalWindow title="tech_stack.json — Skills & Stack">
           <motion.pre
-            className="text-xs sm:text-sm leading-loose"
+            className="text-xs sm:text-sm leading-loose overflow-x-auto"
             variants={container}
             initial="hidden"
             whileInView="show"
@@ -109,7 +109,7 @@ const SkillsSection = () => {
               </motion.span>
             </code>
           </motion.pre>
-        </div>
+        </TerminalWindow>
       </div>
     </section>
   );
