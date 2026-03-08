@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { CalendarCheck, ArrowRight, Zap } from "lucide-react";
+import { Zap } from "lucide-react";
+import Cal from "@calcom/embed-react";
 
 const CTASection = () => {
   return (
@@ -51,18 +52,16 @@ const CTASection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="w-full rounded-lg overflow-hidden border border-border/30"
         >
-          <a
-            href="https://cal.com/kojo-nhyira-mante-dankwa-fzksxp/15min"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center gap-3 bg-primary/10 border border-primary/30 text-primary px-6 py-3 rounded-lg text-sm font-semibold hover:bg-primary/20 hover:shadow-[0_0_30px_-5px_hsl(180,100%,50%,0.3)] transition-all duration-300"
-          >
-            <CalendarCheck size={18} />
-            Book Me — Schedule Meeting
-            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-          </a>
+          <Cal
+            calLink="kojo-nhyira-mante-dankwa-fzksxp/15min"
+            style={{ width: "100%", height: "100%", overflow: "scroll" }}
+            config={{
+              layout: "month_view",
+              theme: "dark",
+            }}
+          />
         </motion.div>
 
         <motion.div
