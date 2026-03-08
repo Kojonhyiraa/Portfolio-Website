@@ -8,7 +8,11 @@ const vp = { once: false, amount: 0.3 } as const;
 type TerminalState = "open" | "minimized" | "closed";
 type LaunchLabel = "start" | "restart";
 
-const HeroSection = () => {
+interface HeroProps {
+  onTerminalOpen?: () => void;
+}
+
+const HeroSection = ({ onTerminalOpen }: HeroProps) => {
   const headline = "> Architecting Robust Backend Systems & Scalable Infrastructure";
   const [displayText, setDisplayText] = useState("");
   const [showCursor, setShowCursor] = useState(true);
