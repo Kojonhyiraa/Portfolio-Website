@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail } from "lucide-react";
+import { ArcRings } from "./SvgDecorations";
 
 const socialLinks = [
   { href: "https://github.com/", label: "GitHub", icon: Github },
