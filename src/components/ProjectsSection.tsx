@@ -139,7 +139,7 @@ const ProjectsSection = () => {
                   <div className="shrink-0 opacity-60 group-hover:opacity-100 transition-opacity">
                     {project.icon}
                   </div>
-                  <h3 className="text-terminal-cyan text-lg font-semibold group-hover:text-terminal-green transition-colors pt-1">
+                  <h3 className="text-terminal-cyan text-lg font-semibold group-hover:text-terminal-cyan transition-colors pt-1">
                     {project.name}
                   </h3>
                 </div>
