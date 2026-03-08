@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef } from "react";
-import CircuitBackground from "./CircuitBackground";
+import { ArcRings, Crosshair, OrbitDots } from "./SvgDecorations";
 
 const vp = { once: false, amount: 0.3 } as const;
 
