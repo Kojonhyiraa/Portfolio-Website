@@ -1,53 +1,85 @@
+import { motion } from "framer-motion";
 import { Github, Linkedin, Mail } from "lucide-react";
+
+const socialLinks = [
+  { href: "https://github.com/", label: "GitHub", icon: Github },
+  { href: "https://linkedin.com/", label: "LinkedIn", icon: Linkedin },
+  { href: "mailto:kojo@example.com", label: "Email", icon: Mail },
+];
 
 const FooterSection = () => {
   return (
-    <footer className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-terminal">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-terminal-comment text-xs mb-6">// EOF — connect.sh</div>
+    <footer className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-border relative overflow-hidden">
+      {/* Decorative terminal prompt SVG */}
+      <svg className="absolute left-0 bottom-0 w-full h-32 opacity-[0.015]" viewBox="0 0 1200 120" fill="none" preserveAspectRatio="none">
+        <path d="M0 60 Q300 0 600 60 Q900 120 1200 60" stroke="hsl(180,100%,50%)" strokeWidth="1" />
+        <path d="M0 80 Q300 20 600 80 Q900 140 1200 80" stroke="hsl(45,100%,55%)" strokeWidth="0.5" />
+      </svg>
 
-        <div className="bg-terminal-panel border border-terminal rounded-md p-5 sm:p-8">
+      <div className="max-w-4xl mx-auto relative">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-terminal-comment text-xs mb-6 flex items-center gap-2"
+        >
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="opacity-50">
+            <rect x="1" y="1" width="12" height="12" rx="2" stroke="currentColor" strokeWidth="1" />
+            <path d="M4 7h6M7 4v6" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
+          </svg>
+          EOF — connect.sh
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="bg-card/80 backdrop-blur-sm border border-border rounded-lg p-5 sm:p-8 shadow-[0_4px_30px_-10px_hsl(180,100%,50%,0.05)]"
+        >
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
             <div>
-              <h3 className="text-terminal-cyan text-sm font-semibold mb-2">
-                &gt; Establish Connection
+              <h3 className="text-terminal-cyan text-sm font-semibold mb-2 flex items-center gap-2">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="opacity-60">
+                  <path d="M4 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                Establish Connection
               </h3>
               <p className="text-foreground/60 text-xs leading-relaxed max-w-sm">
                 Open to backend engineering roles, collaboration, and community-driven projects.
               </p>
             </div>
 
-            <div className="flex items-center gap-4">
-              <a
-                href="https://github.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2.5 rounded border border-terminal hover:border-terminal-cyan/40 hover:text-terminal-cyan text-foreground/60 transition-colors"
-                aria-label="GitHub"
-              >
-                <Github size={18} />
-              </a>
-              <a
-                href="https://linkedin.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2.5 rounded border border-terminal hover:border-terminal-cyan/40 hover:text-terminal-cyan text-foreground/60 transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={18} />
-              </a>
-              <a
-                href="mailto:kojo@example.com"
-                className="p-2.5 rounded border border-terminal hover:border-terminal-cyan/40 hover:text-terminal-cyan text-foreground/60 transition-colors"
-                aria-label="Email"
-              >
-                <Mail size={18} />
-              </a>
+            <div className="flex items-center gap-3">
+              {socialLinks.map((link, i) => (
+                <motion.a
+                  key={link.label}
+                  href={link.href}
+                  target={link.label !== "Email" ? "_blank" : undefined}
+                  rel={link.label !== "Email" ? "noopener noreferrer" : undefined}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4 + i * 0.1, type: "spring", stiffness: 300 }}
+                  whileHover={{ y: -3, transition: { duration: 0.2 } }}
+                  className="p-2.5 rounded-lg border border-border hover:border-primary/40 hover:text-primary hover:bg-primary/5 text-foreground/60 transition-all duration-300"
+                  aria-label={link.label}
+                >
+                  <link.icon size={18} />
+                </motion.a>
+              ))}
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="mt-8 text-center space-y-2">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6 }}
+          className="mt-8 text-center space-y-2"
+        >
           <p className="text-terminal-comment text-[10px]">
             /* Community: Active contributor to church media tech &amp; live event broadcasting */
           </p>
@@ -57,7 +89,7 @@ const FooterSection = () => {
           <p className="text-terminal-line-number text-[10px]">
             Process exited with code <span className="text-terminal-green">0</span>
           </p>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );

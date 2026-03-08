@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 const experiences = [
   {
     role: "Software Engineering Intern",
@@ -19,45 +21,97 @@ const experiences = [
 
 const ExperienceSection = () => {
   return (
-    <section id="experience" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-lg sm:text-xl font-bold mb-2">
+    <section id="experience" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Background circuit SVG */}
+      <svg className="absolute right-0 top-1/4 w-40 h-80 opacity-[0.03]" viewBox="0 0 160 320" fill="none">
+        <path d="M80 0 v80 h60 v80 h-120 v80 h60 v80" stroke="hsl(180,100%,50%)" strokeWidth="1" />
+        <circle cx="80" cy="80" r="4" fill="hsl(180,100%,50%)" />
+        <circle cx="140" cy="160" r="4" fill="hsl(180,100%,50%)" />
+        <circle cx="20" cy="240" r="4" fill="hsl(180,100%,50%)" />
+        <circle cx="80" cy="320" r="4" fill="hsl(180,100%,50%)" />
+      </svg>
+
+      <div className="max-w-4xl mx-auto relative">
+        <motion.h2
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-lg sm:text-xl font-bold mb-2"
+        >
           <span className="text-terminal-comment">// </span>
           <span className="text-terminal-amber">Execution Log</span>
           <span className="text-foreground"> / </span>
           <span className="text-terminal-amber">Professional Experience</span>
-        </h2>
+        </motion.h2>
         <p className="text-terminal-comment text-xs mb-8">tail -f experience.log</p>
 
         <div className="relative">
-          <div className="absolute left-[7px] top-0 bottom-0 w-px bg-terminal-cyan/20 hidden sm:block" />
+          {/* Animated timeline line */}
+          <motion.div
+            initial={{ height: 0 }}
+            whileInView={{ height: "100%" }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] as const }}
+            className="absolute left-[7px] top-0 w-px bg-gradient-to-b from-primary via-primary/50 to-transparent hidden sm:block"
+          />
 
           <div className="space-y-8">
             {experiences.map((exp, i) => (
-              <div key={i} className="relative pl-0 sm:pl-8">
-                <div className="hidden sm:block absolute left-0 top-3 w-[15px] h-[15px] rounded-full border-2 border-terminal-cyan bg-background z-10" />
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.25, ease: [0.25, 0.1, 0.25, 1] as const }}
+                className="relative pl-0 sm:pl-8"
+              >
+                {/* Animated dot */}
+                <motion.div
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.25 + 0.3, type: "spring", stiffness: 300 }}
+                  className="hidden sm:block absolute left-0 top-3 w-[15px] h-[15px] rounded-full border-2 border-primary bg-background z-10"
+                >
+                  <span className="absolute inset-0 rounded-full bg-primary/20 animate-ping" />
+                </motion.div>
 
-                <div className="bg-terminal-panel border border-terminal rounded-md p-5 sm:p-6 hover:border-terminal-cyan/30 transition-colors">
+                <div className="bg-card/80 backdrop-blur-sm border border-border rounded-lg p-5 sm:p-6 hover:border-primary/30 hover:shadow-[0_4px_30px_-10px_hsl(180,100%,50%,0.08)] transition-all duration-400 group">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 gap-1">
-                    <div>
-                      <h3 className="text-terminal-cyan text-sm font-semibold">{exp.role}</h3>
-                      <p className="text-terminal-green text-xs">@ {exp.company}</p>
+                    <div className="flex items-start gap-3">
+                      {/* Briefcase SVG */}
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-terminal-cyan opacity-50 mt-0.5 shrink-0">
+                        <rect x="1" y="5" width="14" height="9" rx="1" stroke="currentColor" strokeWidth="1" />
+                        <path d="M5 5V3a1 1 0 011-1h4a1 1 0 011 1v2" stroke="currentColor" strokeWidth="1" />
+                        <line x1="1" y1="9" x2="15" y2="9" stroke="currentColor" strokeWidth="1" />
+                      </svg>
+                      <div>
+                        <h3 className="text-terminal-cyan text-sm font-semibold group-hover:text-primary transition-colors">{exp.role}</h3>
+                        <p className="text-terminal-green text-xs">@ {exp.company}</p>
+                      </div>
                     </div>
-                    <span className="text-terminal-comment text-xs font-mono">{exp.period}</span>
+                    <span className="text-terminal-comment text-xs font-mono flex items-center gap-1">
+                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="opacity-40">
+                        <circle cx="6" cy="6" r="5" stroke="currentColor" strokeWidth="1" />
+                        <path d="M6 3v3l2 1" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
+                      </svg>
+                      {exp.period}
+                    </span>
                   </div>
                   <p className="text-foreground/70 text-sm leading-relaxed mb-3">{exp.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {exp.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="text-[10px] px-2 py-0.5 rounded border border-terminal-amber/30 text-terminal-amber"
+                        className="text-[10px] px-2.5 py-1 rounded-full border border-accent/30 text-accent bg-accent/5 font-medium"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
