@@ -23,8 +23,8 @@ const CircuitBackground = () => {
 
     let animId: number;
     let nodes: Node[] = [];
-    const nodeCount = 35;
-    const connectionDist = 180;
+    const nodeCount = 70;
+    const connectionDist = 140;
 
     const resize = () => {
       canvas.width = canvas.offsetWidth * window.devicePixelRatio;
@@ -39,11 +39,11 @@ const CircuitBackground = () => {
       nodes = Array.from({ length: nodeCount }, () => ({
         x: Math.random() * w,
         y: Math.random() * h,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
-        radius: Math.random() * 2 + 1,
+        vx: (Math.random() - 0.5) * 0.8,
+        vy: (Math.random() - 0.5) * 0.8,
+        radius: Math.random() * 2.5 + 1,
         pulse: Math.random() * Math.PI * 2,
-        pulseSpeed: Math.random() * 0.02 + 0.01,
+        pulseSpeed: Math.random() * 0.05 + 0.03,
         connected: [],
       }));
     };

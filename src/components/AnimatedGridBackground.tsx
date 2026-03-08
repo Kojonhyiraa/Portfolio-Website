@@ -22,7 +22,7 @@ const AnimatedGridBackground = () => {
 
     let animationId: number;
     let cells: Cell[] = [];
-    const CELL_SIZE = 60;
+    const CELL_SIZE = 40;
     let cols = 0;
     let rows = 0;
     let time = 0;
@@ -54,10 +54,10 @@ const AnimatedGridBackground = () => {
 
     const triggerRandomCells = () => {
       // Randomly light up a wave of cells
-      const count = Math.floor(3 + Math.random() * 8);
+      const count = Math.floor(8 + Math.random() * 15);
       const centerX = Math.random() * canvas.width;
       const centerY = Math.random() * canvas.height;
-      const radius = 150 + Math.random() * 250;
+      const radius = 200 + Math.random() * 350;
 
       for (let i = 0; i < count; i++) {
         const idx = Math.floor(Math.random() * cells.length);
@@ -65,8 +65,8 @@ const AnimatedGridBackground = () => {
         const dist = Math.hypot(cell.x - centerX, cell.y - centerY);
 
         if (dist < radius) {
-          cell.targetOpacity = 0.08 + Math.random() * 0.15;
-          cell.delay = dist * 0.3; // ripple delay based on distance
+          cell.targetOpacity = 0.12 + Math.random() * 0.25;
+          cell.delay = dist * 0.2;
           cell.hue = Math.random() > 0.6 ? 45 : 180;
         }
       }
@@ -84,8 +84,8 @@ const AnimatedGridBackground = () => {
 
         if (match) {
           const offset = isHorizontal ? cellCol : cellRow;
-          cell.targetOpacity = 0.06 + Math.random() * 0.12;
-          cell.delay = offset * 15;
+          cell.targetOpacity = 0.10 + Math.random() * 0.20;
+          cell.delay = offset * 8;
           cell.hue = 180;
         }
       });
@@ -99,13 +99,13 @@ const AnimatedGridBackground = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       // Trigger random clusters
-      if (time - lastTrigger > 60 + Math.random() * 90) {
+      if (time - lastTrigger > 25 + Math.random() * 40) {
         triggerRandomCells();
         lastTrigger = time;
       }
 
       // Trigger sweeps less frequently
-      if (time - lastSweep > 300 + Math.random() * 200) {
+      if (time - lastSweep > 120 + Math.random() * 100) {
         triggerSweep();
         lastSweep = time;
       }
