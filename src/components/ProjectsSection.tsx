@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 const projects = [
   {
     name: "Fundgate",
@@ -15,6 +17,15 @@ const projects = [
   },
 ];
 
+const cardVariant = {
+  hidden: { opacity: 0, y: 30 },
+  show: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.2, duration: 0.45, ease: "easeOut" },
+  }),
+};
+
 const ProjectsSection = () => {
   return (
     <section id="projects" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-card/30">
@@ -28,12 +39,16 @@ const ProjectsSection = () => {
         <p className="text-terminal-comment text-xs mb-8">ls -la ~/projects/</p>
 
         <div className="grid gap-6 md:grid-cols-2">
-          {projects.map((project) => (
-            <div
+          {projects.map((project, i) => (
+            <motion.div
               key={project.name}
+              custom={i}
+              variants={cardVariant}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-40px" }}
               className="bg-terminal-panel border border-terminal rounded-md overflow-hidden hover:border-terminal-green/30 transition-colors group"
             >
-              {/* File tab bar */}
               <div className="flex items-center gap-1 px-4 py-2 bg-background/50 border-b border-terminal">
                 <div className="flex items-center gap-2 px-3 py-1 bg-terminal-panel rounded-t text-xs">
                   <span className="text-terminal-green">●</span>
@@ -58,7 +73,7 @@ const ProjectsSection = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
