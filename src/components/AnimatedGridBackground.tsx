@@ -99,7 +99,7 @@ const AnimatedGridBackground = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       // Trigger random clusters
-      if (time - lastTrigger > 60 + Math.random() * 90) {
+      if (time - lastTrigger > 25 + Math.random() * 40) {
         triggerRandomCells();
         lastTrigger = time;
       }
