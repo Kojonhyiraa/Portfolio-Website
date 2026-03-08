@@ -23,7 +23,7 @@ const TerminalNav = () => {
               KMD
             </span>
             <span className="text-terminal-comment text-[9px] leading-tight">
-              backend.engineer
+              software.engineer
             </span>
           </div>
         </Link>
