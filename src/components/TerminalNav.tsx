@@ -8,7 +8,9 @@ const TerminalNav = () => {
 
   const scrollTo = (id: string) => {
     setOpen(false);
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
   };
 
   return (
@@ -37,8 +39,9 @@ const TerminalNav = () => {
           {[
             { label: "about()", id: "about" },
             { label: "skills()", id: "skills" },
+            { label: "experience()", id: "experience" },
             { label: "projects()", id: "projects" },
-            { label: "contact()", id: "contact" },
+            { label: "contact()", id: "cta" },
           ].map((item) => (
             <button
               key={item.id}
@@ -76,8 +79,9 @@ const TerminalNav = () => {
               {[
                 { label: "about()", id: "about" },
                 { label: "skills()", id: "skills" },
+                { label: "experience()", id: "experience" },
                 { label: "projects()", id: "projects" },
-                { label: "contact()", id: "contact" },
+                { label: "contact()", id: "cta" },
               ].map((item) => (
                 <button
                   key={item.id}
