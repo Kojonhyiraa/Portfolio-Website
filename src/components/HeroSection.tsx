@@ -26,7 +26,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center px-3 sm:px-6 lg:px-8 pt-14 sm:pt-16 relative overflow-hidden">
       {/* 3D Space Background */}
       <div className="absolute inset-0 z-0">
         <SpaceScene />
@@ -77,7 +77,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-          className="bg-card/80 backdrop-blur-xl border border-border rounded-lg p-4 sm:p-8 mb-6 shadow-[0_0_60px_-15px_hsl(180,100%,50%,0.1)]"
+          className="bg-card/80 backdrop-blur-xl border border-border rounded-lg p-3 sm:p-6 md:p-8 mb-4 sm:mb-6 shadow-[0_0_60px_-15px_hsl(180,100%,50%,0.1)]"
         >
           <div className="flex items-center gap-2 mb-6">
             <motion.span
@@ -108,7 +108,17 @@ const HeroSection = () => {
             </motion.span>
           </div>
 
-          <h1 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold text-terminal-cyan leading-tight mb-6">
+          <motion.h2
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.5 }}
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tight mb-4"
+          >
+            Kojo Nhyira<br className="sm:hidden" />{" "}
+            <span className="text-terminal-cyan">Mante-Dankwa</span>
+          </motion.h2>
+
+          <h1 className="text-sm sm:text-lg md:text-xl lg:text-2xl font-semibold text-terminal-cyan/80 leading-tight mb-4">
             {displayText}
             <span
               className={`inline-block w-[2px] h-[1em] bg-terminal-cyan ml-1 align-middle ${
@@ -121,7 +131,7 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2, duration: 0.6 }}
-            className="text-foreground/70 text-sm sm:text-base leading-relaxed mb-8 max-w-2xl"
+            className="text-foreground/70 text-xs sm:text-sm md:text-base leading-relaxed mb-6 max-w-2xl"
           >
             <span className="text-terminal-magenta">Backend Engineer</span> specializing
             in enterprise Java ecosystems, Jakarta EE, and high-availability database
