@@ -44,11 +44,11 @@ const HeroSection = ({ onTerminalOpen }: HeroProps) => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="min-h-screen flex items-center justify-center px-3 sm:px-6 lg:px-8 pt-14 sm:pt-16 relative overflow-hidden">
+    <section ref={sectionRef} className="min-h-screen flex items-center justify-center px-3 sm:px-6 lg:px-8 pt-14 sm:pt-16 relative overflow-hidden bg-white">
       <div className="absolute inset-0 z-0">
         <CircuitBackground />
       </div>
-      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-background/30 via-background/60 to-background" />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-white/30 via-white/60 to-white" />
 
 
       <svg className="absolute top-16 left-4 z-[2] w-20 h-20 opacity-10" viewBox="0 0 80 80" fill="none">
