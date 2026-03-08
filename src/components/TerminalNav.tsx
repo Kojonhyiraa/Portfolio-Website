@@ -30,8 +30,8 @@ const TerminalNav = () => {
 
         {/* Desktop nav */}
         <div className="hidden sm:flex items-center gap-1">
-          <a
-            href="#blog"
+          <Link
+            to="/blog"
             className="relative text-xs text-foreground/60 hover:text-terminal-cyan px-3 py-1.5 rounded-md hover:bg-primary/5 transition-all duration-300 flex items-center gap-1.5"
           >
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="opacity-50">
@@ -41,7 +41,7 @@ const TerminalNav = () => {
               <line x1="3" y1="8" x2="8" y2="8" stroke="currentColor" strokeWidth="0.8" />
             </svg>
             blog()
-          </a>
+          </Link>
           <div className="w-px h-4 bg-border mx-1" />
           <a
             href="#"
