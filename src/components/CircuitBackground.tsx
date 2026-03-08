@@ -23,8 +23,8 @@ const CircuitBackground = () => {
 
     let animId: number;
     let nodes: Node[] = [];
-    const nodeCount = 35;
-    const connectionDist = 180;
+    const nodeCount = 70;
+    const connectionDist = 140;
 
     const resize = () => {
       canvas.width = canvas.offsetWidth * window.devicePixelRatio;
