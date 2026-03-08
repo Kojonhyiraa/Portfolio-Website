@@ -1,11 +1,13 @@
-import { motion } from "framer-motion";
-import { Zap } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { CalendarCheck, ArrowRight, Zap, X } from "lucide-react";
 import Cal from "@calcom/embed-react";
 
 const CTASection = () => {
+  const [showCal, setShowCal] = useState(false);
+
   return (
     <section className="py-20 sm:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Background pulse */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary/[0.03] blur-3xl" />
       </div>
@@ -52,17 +54,38 @@ const CTASection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="w-full rounded-lg overflow-hidden border border-border/30"
+          className="flex flex-col items-center gap-4"
         >
-          <Cal
-            calLink="kojo-nhyira-mante-dankwa-fzksxp/15min"
-            style={{ width: "100%", height: "100%", overflow: "scroll" }}
-            config={{
-              layout: "month_view",
-              theme: "dark",
-            }}
-          />
+          <button
+            onClick={() => setShowCal(!showCal)}
+            className="group inline-flex items-center gap-3 bg-primary/10 border border-primary/30 text-primary px-6 py-3 rounded-lg text-sm font-semibold hover:bg-primary/20 hover:shadow-[0_0_30px_-5px_hsl(180,100%,50%,0.3)] transition-all duration-300"
+          >
+            {showCal ? <X size={18} /> : <CalendarCheck size={18} />}
+            {showCal ? "Close Scheduler" : "Book Me — Schedule Meeting"}
+            {!showCal && <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />}
+          </button>
         </motion.div>
+
+        <AnimatePresence>
+          {showCal && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 580 }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              className="mt-8 rounded-lg overflow-hidden border border-border/30 bg-background"
+            >
+              <Cal
+                calLink="kojo-nhyira-mante-dankwa-fzksxp/15min"
+                style={{ width: "100%", height: "100%", overflow: "auto" }}
+                config={{
+                  layout: "month_view",
+                  theme: "dark",
+                }}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         <motion.div
           initial={{ opacity: 0 }}
