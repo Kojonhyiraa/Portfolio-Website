@@ -95,8 +95,8 @@ const ExperienceSection = () => {
                         <p className="text-terminal-green text-xs">@ {exp.company}</p>
                       </div>
                     </div>
-                    <span className="text-terminal-comment text-xs font-mono flex items-center gap-1">
-                      {(exp as any).current ? (
+                    {(exp as any).current && (
+                      <span className="text-terminal-comment text-xs font-mono flex items-center gap-1">
                         <span className="flex items-center gap-1">
                           <span className="relative flex h-2 w-2">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-terminal-green opacity-75" />
@@ -104,16 +104,8 @@ const ExperienceSection = () => {
                           </span>
                           <span className="text-terminal-green">Current</span>
                         </span>
-                      ) : (
-                        <>
-                          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="opacity-40">
-                            <circle cx="6" cy="6" r="5" stroke="currentColor" strokeWidth="1" />
-                            <path d="M6 3v3l2 1" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
-                          </svg>
-                          {exp.period}
-                        </>
-                      )}
-                    </span>
+                      </span>
+                    )}
                   </div>
                   <p className="text-foreground/70 text-sm leading-relaxed mb-3">{exp.description}</p>
                   <div className="flex flex-wrap gap-2">
