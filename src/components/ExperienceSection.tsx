@@ -4,7 +4,7 @@ import { ArcRings, OrbitDots } from "./SvgDecorations";
 const experiences = [
   {
     role: "Software Engineer",
-    company: "eTranzact Ghana, Accra Ghana",
+    company: "eTranzact Ghana",
     period: "",
     description:
       "Building fintech backend applications and USSD services powering digital payment infrastructure. Designing scalable APIs, integrating payment gateways, and developing high-availability transaction processing systems for enterprise clients.",
