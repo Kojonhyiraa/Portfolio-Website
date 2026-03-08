@@ -16,7 +16,7 @@ const AboutSection = () => {
         <motion.h2
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.5 }}
           className="text-lg sm:text-xl font-bold mb-8"
         >
@@ -33,7 +33,7 @@ const AboutSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="bg-card/80 backdrop-blur-sm border border-border rounded-lg p-5 sm:p-8 shadow-[0_4px_30px_-10px_hsl(180,100%,50%,0.05)] hover:shadow-[0_4px_40px_-10px_hsl(180,100%,50%,0.1)] transition-shadow duration-500"
         >
@@ -49,7 +49,7 @@ const AboutSection = () => {
             <motion.p
               initial={{ opacity: 0, x: -10 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, amount: 0.5 }}
               transition={{ duration: 0.4, delay: 0.3 }}
             >
               A results-driven <span className="text-terminal-cyan font-medium">Backend Software Engineer</span> with a{" "}
@@ -60,7 +60,7 @@ const AboutSection = () => {
             <motion.p
               initial={{ opacity: 0, x: -10 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, amount: 0.5 }}
               transition={{ duration: 0.4, delay: 0.5 }}
             >
               Passionate about designing <span className="text-terminal-cyan font-medium">secure, scalable server-side architectures</span>{" "}
@@ -70,7 +70,7 @@ const AboutSection = () => {
             <motion.p
               initial={{ opacity: 0, x: -10 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, amount: 0.5 }}
               transition={{ duration: 0.4, delay: 0.7 }}
             >
               Equipped with strong analytical thinking, a commitment to clean code principles, and effective{" "}

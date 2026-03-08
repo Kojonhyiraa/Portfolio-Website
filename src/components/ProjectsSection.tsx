@@ -69,7 +69,7 @@ const ProjectsSection = () => {
         <motion.h2
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.5 }}
           className="text-lg sm:text-xl font-bold mb-2"
         >
@@ -88,7 +88,7 @@ const ProjectsSection = () => {
               variants={cardVariant}
               initial="hidden"
               whileInView="show"
-              viewport={{ once: true, margin: "-40px" }}
+              viewport={{ once: false, amount: 0.2, margin: "-40px" }}
               whileHover={{ y: -4, transition: { duration: 0.25 } }}
               className="bg-card/80 backdrop-blur-sm border border-border rounded-lg overflow-hidden hover:border-terminal-green/30 hover:shadow-[0_8px_40px_-10px_hsl(120,100%,45%,0.1)] transition-all duration-400 group"
             >

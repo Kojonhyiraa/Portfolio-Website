@@ -20,7 +20,7 @@ const FooterSection = () => {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.5 }}
           className="text-terminal-comment text-xs mb-6 flex items-center gap-2"
         >
@@ -34,7 +34,7 @@ const FooterSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="bg-card/80 backdrop-blur-sm border border-border rounded-lg p-5 sm:p-8 shadow-[0_4px_30px_-10px_hsl(180,100%,50%,0.05)]"
         >
@@ -60,7 +60,7 @@ const FooterSection = () => {
                   rel={link.label !== "Email" ? "noopener noreferrer" : undefined}
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false, amount: 0.3 }}
                   transition={{ delay: 0.4 + i * 0.1, type: "spring", stiffness: 300 }}
                   whileHover={{ y: -3, transition: { duration: 0.2 } }}
                   className="p-2.5 rounded-lg border border-border hover:border-primary/40 hover:text-primary hover:bg-primary/5 text-foreground/60 transition-all duration-300"
@@ -76,7 +76,7 @@ const FooterSection = () => {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, amount: 0.3 }}
           transition={{ delay: 0.6 }}
           className="mt-8 text-center space-y-2"
         >

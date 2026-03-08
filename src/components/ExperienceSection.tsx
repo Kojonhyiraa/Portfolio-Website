@@ -35,7 +35,7 @@ const ExperienceSection = () => {
         <motion.h2
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.5 }}
           className="text-lg sm:text-xl font-bold mb-2"
         >
@@ -51,7 +51,7 @@ const ExperienceSection = () => {
           <motion.div
             initial={{ height: 0 }}
             whileInView={{ height: "100%" }}
-            viewport={{ once: true }}
+            viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] as const }}
             className="absolute left-[7px] top-0 w-px bg-gradient-to-b from-primary via-primary/50 to-transparent hidden sm:block"
           />
@@ -62,7 +62,7 @@ const ExperienceSection = () => {
                 key={i}
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false, amount: 0.2 }}
                 transition={{ duration: 0.6, delay: i * 0.25, ease: [0.25, 0.1, 0.25, 1] as const }}
                 className="relative pl-0 sm:pl-8"
               >
@@ -70,7 +70,7 @@ const ExperienceSection = () => {
                 <motion.div
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false, amount: 0.2 }}
                   transition={{ delay: i * 0.25 + 0.3, type: "spring", stiffness: 300 }}
                   className="hidden sm:block absolute left-0 top-3 w-[15px] h-[15px] rounded-full border-2 border-primary bg-background z-10"
                 >
