@@ -10,7 +10,7 @@ const TerminalNav = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
       <div className="max-w-5xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between h-12 sm:h-14">
         {/* Signature logo */}
-        <a href="#" className="flex items-center gap-2.5 group">
+        <Link to="/" className="flex items-center gap-2.5 group">
           <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/20 group-hover:border-primary/40 transition-all duration-300 group-hover:shadow-[0_0_15px_-5px_hsl(180,100%,50%,0.3)]">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-terminal-cyan">
               <path d="M4 7l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
