@@ -13,7 +13,18 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        mono: ['JetBrains Mono', 'Fira Code', 'Courier New', 'monospace'],
+      },
       colors: {
+        terminal: {
+          green: "hsl(var(--terminal-green))",
+          cyan: "hsl(var(--terminal-cyan))",
+          amber: "hsl(var(--terminal-amber))",
+          magenta: "hsl(var(--terminal-magenta))",
+          comment: "hsl(var(--terminal-comment))",
+          "line-number": "hsl(var(--terminal-line-number))",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
