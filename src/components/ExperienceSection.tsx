@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { ArcRings, OrbitDots } from "./SvgDecorations";
 
 const experiences = [
   {
