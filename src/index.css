@@ -97,6 +97,35 @@
   .border-terminal {
     border-color: hsl(var(--border));
   }
+
+  /* Light section utility classes */
+  .section-light {
+    background-color: hsl(var(--section-light-bg));
+    color: hsl(var(--section-light-fg));
+  }
+  .section-light .text-foreground,
+  .section-light .text-foreground\/80,
+  .section-light .text-foreground\/70,
+  .section-light .text-foreground\/60 {
+    color: hsl(var(--section-light-fg));
+  }
+  .section-light .bg-card\/80,
+  .section-light .bg-card {
+    background-color: hsl(var(--section-light-card));
+  }
+  .section-light .border-border,
+  .section-light .border-border\/50 {
+    border-color: hsl(var(--section-light-card-border));
+  }
+  .section-light .text-terminal-comment {
+    color: hsl(var(--section-light-muted));
+  }
+  .section-light .bg-background\/50 {
+    background-color: hsl(var(--section-light-card) / 0.5);
+  }
+  .section-light .text-terminal-line-number {
+    color: hsl(var(--section-light-muted));
+  }
 }
 
 @keyframes blink {
