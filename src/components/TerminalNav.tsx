@@ -13,9 +13,9 @@ const TerminalNav = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-terminal">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-12">
-        <a href="#" className="text-terminal-cyan text-xs font-semibold tracking-wide">
-          kojo@portfolio<span className="text-terminal-comment">:~$</span>
+      <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between h-11 sm:h-12">
+        <a href="#" className="text-terminal-cyan text-[11px] sm:text-xs font-semibold tracking-wide">
+          <span className="font-bold text-foreground">KMD</span><span className="text-terminal-comment">@portfolio:~$</span>
         </a>
 
         <div className="hidden sm:flex items-center gap-6">
