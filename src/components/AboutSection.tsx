@@ -41,10 +41,10 @@ const AboutSection = () => {
               viewport={{ once: false, amount: 0.5 }}
               transition={{ duration: 0.4, delay: 0.3 }}
             >
-              A results-driven <span className="text-terminal-cyan font-medium">Backend Software Engineer</span> with a{" "}
-              <span className="text-terminal-green font-medium">First Class Honours</span> degree in{" "}
-              <span className="text-terminal-amber font-medium">Computer Engineering</span> from Kwame Nkrumah University of
-              Science and Technology (KNUST).
+              A <span className="text-terminal-cyan font-medium">Software Engineer</span> with a track record of
+              shipping <span className="text-terminal-green font-medium">production systems</span> that handle
+              real-world scale — from financial platforms processing high-volume transactions to consumer applications
+              serving thousands of daily users.
             </motion.p>
             <motion.p
               initial={{ opacity: 0, x: -10 }}
@@ -52,9 +52,10 @@ const AboutSection = () => {
               viewport={{ once: false, amount: 0.5 }}
               transition={{ duration: 0.4, delay: 0.5 }}
             >
-              Passionate about designing <span className="text-terminal-cyan font-medium">secure, scalable server-side architectures</span>{" "}
-              that power enterprise-grade applications. Proven experience across the full software development lifecycle — from database
-              schema design to middleware integration and API security.
+              I operate across the full stack with a deep focus on <span className="text-terminal-cyan font-medium">backend architecture</span>,{" "}
+              <span className="text-terminal-amber font-medium">database design</span>, and{" "}
+              <span className="text-terminal-green font-medium">API security</span>. I care about clean abstractions,
+              resilient infrastructure, and writing code that other engineers actually want to maintain.
             </motion.p>
             <motion.p
               initial={{ opacity: 0, x: -10 }}
@@ -62,8 +63,9 @@ const AboutSection = () => {
               viewport={{ once: false, amount: 0.5 }}
               transition={{ duration: 0.4, delay: 0.7 }}
             >
-              Equipped with strong analytical thinking, a commitment to clean code principles, and effective{" "}
-              <span className="text-terminal-magenta font-medium">bilingual communication</span> skills (English &amp; beginner French).
+              Whether it's designing <span className="text-terminal-magenta font-medium">fault-tolerant microservices</span>,
+              optimizing complex data pipelines, or leading technical decisions under pressure — I build
+              software that works when it matters most.
             </motion.p>
           </div>
 

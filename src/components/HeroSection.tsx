@@ -13,7 +13,7 @@ interface HeroProps {
 }
 
 const HeroSection = ({ onTerminalOpen }: HeroProps) => {
-  const headline = "> Architecting Robust Backend Systems & Scalable Infrastructure";
+  const headline = "> Engineering Software That Moves Industries Forward";
   const [displayText, setDisplayText] = useState("");
   const [showCursor, setShowCursor] = useState(true);
   const [terminalState, setTerminalState] = useState<TerminalState>("closed");
@@ -190,9 +190,9 @@ const HeroSection = ({ onTerminalOpen }: HeroProps) => {
                         transition={{ delay: 0.8, duration: 0.6 }}
                         className="text-foreground/70 text-xs sm:text-sm md:text-base leading-relaxed mb-6 max-w-2xl"
                       >
-                        <span className="text-terminal-magenta">Backend Engineer</span> specializing
-                        in enterprise Java ecosystems, Jakarta EE, and high-availability database
-                        management.
+                        <span className="text-terminal-magenta">Software Engineer</span> building
+                        enterprise-grade systems — from fintech platforms processing millions in
+                        transactions to consumer products used daily by thousands.
                       </motion.p>
 
                       <motion.div
