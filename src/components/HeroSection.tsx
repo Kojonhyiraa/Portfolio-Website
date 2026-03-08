@@ -6,6 +6,7 @@ import SpaceScene from "./SpaceScene";
 const vp = { once: false, amount: 0.3 } as const;
 
 type TerminalState = "open" | "minimized" | "closed";
+type LaunchLabel = "start" | "restart";
 
 const HeroSection = () => {
   const headline = "> Architecting Robust Backend Systems & Scalable Infrastructure";
