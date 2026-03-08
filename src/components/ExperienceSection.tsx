@@ -3,18 +3,18 @@ import { ArcRings, OrbitDots } from "./SvgDecorations";
 
 const experiences = [
   {
-    role: "Backend Engineer",
+    role: "Software Engineer",
     company: "eTranzact Ghana",
-    period: "Current",
+    period: "",
     description:
       "Building fintech backend applications and USSD services powering digital payment infrastructure. Designing scalable APIs, integrating payment gateways, and developing high-availability transaction processing systems for enterprise clients.",
     tags: ["Fintech", "USSD", "Backend APIs", "Payment Systems"],
     current: true,
   },
   {
-    role: "Software Engineering Intern",
+    role: "Software Engineer",
     company: "SuperTech Ghana Limited",
-    period: "Sep — Nov 2024",
+    period: "",
     description:
       "Contributed to enterprise software development lifecycles, building and testing modules for production systems. Collaborated with senior engineers on scalable backend solutions and participated in code reviews and deployment pipelines.",
     tags: ["Java", "SDLC", "Enterprise"],
@@ -22,7 +22,7 @@ const experiences = [
   {
     role: "IT Support Intern",
     company: "Milife Insurance Ghana",
-    period: "Oct — Dec 2023",
+    period: "",
     description:
       "Provided system troubleshooting and operational support across the IT infrastructure. Diagnosed hardware/software issues and ensured uptime for critical business applications.",
     tags: ["Systems", "Troubleshooting", "Infrastructure"],
