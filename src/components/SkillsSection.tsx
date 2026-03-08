@@ -1,7 +1,19 @@
+import { motion } from "framer-motion";
+
 const skills = {
   "backend_frameworks": ["Java", "Jakarta EE", "Quarkus", "Python"],
   "data_infrastructure": ["RDBMS Architecture", "Schema Design", "MySQL", "Middleware Integration"],
   "security_systems": ["Network Penetration Testing", "Web Penetration Testing", "MATLAB", "Full-Stack Integration"],
+};
+
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.12 } },
+};
+
+const line = {
+  hidden: { opacity: 0, x: -12 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.35, ease: [0.25, 0.1, 0.25, 1] as const } },
 };
 
 const SkillsSection = () => {
@@ -17,25 +29,39 @@ const SkillsSection = () => {
         <p className="text-terminal-comment text-xs mb-8">cat tech_stack.json</p>
 
         <div className="bg-terminal-panel border border-terminal rounded-md p-5 sm:p-8 overflow-x-auto">
-          <pre className="text-xs sm:text-sm leading-relaxed">
+          <motion.pre
+            className="text-xs sm:text-sm leading-relaxed"
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-40px" }}
+          >
             <code>
-              <span className="text-terminal-comment">{"{"}</span>{"\n"}
+              <motion.span variants={line} className="block">
+                <span className="text-terminal-comment">{"{"}</span>
+              </motion.span>
               {Object.entries(skills).map(([category, items], ci) => (
                 <span key={category}>
-                  {"  "}<span className="text-terminal-cyan">"{category}"</span>
-                  <span className="text-foreground">: [</span>{"\n"}
+                  <motion.span variants={line} className="block">
+                    {"  "}<span className="text-terminal-cyan">"{category}"</span>
+                    <span className="text-foreground">: [</span>
+                  </motion.span>
                   {items.map((item, i) => (
-                    <span key={item}>
+                    <motion.span variants={line} className="block" key={item}>
                       {"    "}<span className="text-terminal-green">"{item}"</span>
-                      {i < items.length - 1 ? <span className="text-foreground">,</span> : null}{"\n"}
-                    </span>
+                      {i < items.length - 1 ? <span className="text-foreground">,</span> : null}
+                    </motion.span>
                   ))}
-                  {"  "}<span className="text-foreground">]{ci < Object.keys(skills).length - 1 ? "," : ""}</span>{"\n"}
+                  <motion.span variants={line} className="block">
+                    {"  "}<span className="text-foreground">]{ci < Object.keys(skills).length - 1 ? "," : ""}</span>
+                  </motion.span>
                 </span>
               ))}
-              <span className="text-terminal-comment">{"}"}</span>
+              <motion.span variants={line} className="block">
+                <span className="text-terminal-comment">{"}"}</span>
+              </motion.span>
             </code>
-          </pre>
+          </motion.pre>
         </div>
       </div>
     </section>
