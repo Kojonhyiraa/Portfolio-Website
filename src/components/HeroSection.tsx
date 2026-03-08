@@ -1,18 +1,20 @@
-import { useState, useEffect, useCallback } from "react";
-import { motion, useInView } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef } from "react";
 import SpaceScene from "./SpaceScene";
 
 const vp = { once: false, amount: 0.3 } as const;
 
+type TerminalState = "open" | "minimized" | "closed";
+
 const HeroSection = () => {
   const headline = "> Architecting Robust Backend Systems & Scalable Infrastructure";
   const [displayText, setDisplayText] = useState("");
   const [showCursor, setShowCursor] = useState(true);
+  const [terminalState, setTerminalState] = useState<TerminalState>("open");
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: false, amount: 0.4 });
 
-  // Restart typewriter whenever hero scrolls back into view
   useEffect(() => {
     if (!isInView) {
       setDisplayText("");
@@ -37,15 +39,11 @@ const HeroSection = () => {
 
   return (
     <section ref={sectionRef} className="min-h-screen flex items-center justify-center px-3 sm:px-6 lg:px-8 pt-14 sm:pt-16 relative overflow-hidden">
-      {/* 3D Space Background */}
       <div className="absolute inset-0 z-0">
         <SpaceScene />
       </div>
-
-      {/* Gradient overlay for readability */}
       <div className="absolute inset-0 z-[1] bg-gradient-to-b from-background/40 via-background/70 to-background" />
 
-      {/* Decorative SVG grid lines */}
       <svg className="absolute inset-0 z-[2] w-full h-full opacity-[0.04]" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
@@ -55,13 +53,12 @@ const HeroSection = () => {
         <rect width="100%" height="100%" fill="url(#grid)" />
       </svg>
 
-      {/* Decorative corner SVGs */}
-      <svg className="absolute top-16 left-4 z-[2] w-20 h-20 opacity-10" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg className="absolute top-16 left-4 z-[2] w-20 h-20 opacity-10" viewBox="0 0 80 80" fill="none">
         <path d="M0 40 L40 0 L80 40 L40 80Z" stroke="hsl(180,100%,50%)" strokeWidth="0.5" />
         <circle cx="40" cy="40" r="15" stroke="hsl(180,100%,50%)" strokeWidth="0.5" />
         <circle cx="40" cy="40" r="3" fill="hsl(180,100%,50%)" />
       </svg>
-      <svg className="absolute bottom-20 right-4 z-[2] w-24 h-24 opacity-10" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg className="absolute bottom-20 right-4 z-[2] w-24 h-24 opacity-10" viewBox="0 0 96 96" fill="none">
         <rect x="8" y="8" width="80" height="80" rx="4" stroke="hsl(45,100%,55%)" strokeWidth="0.5" />
         <line x1="8" y1="48" x2="88" y2="48" stroke="hsl(45,100%,55%)" strokeWidth="0.3" />
         <line x1="48" y1="8" x2="48" y2="88" stroke="hsl(45,100%,55%)" strokeWidth="0.3" />
@@ -83,105 +80,189 @@ const HeroSection = () => {
           kojo-mante-dankwa/portfolio/hero.java
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20, scale: 0.98 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={vp}
-          transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-          className="bg-card/80 backdrop-blur-xl border border-border rounded-lg p-3 sm:p-6 md:p-8 mb-4 sm:mb-6 shadow-[0_0_60px_-15px_hsl(180,100%,50%,0.1)]"
-        >
-          <div className="flex items-center gap-2 mb-6">
-            <motion.span
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              viewport={vp}
-              transition={{ delay: 0.3, type: "spring", stiffness: 400 }}
-              className="w-3 h-3 rounded-full bg-destructive/80"
-            />
-            <motion.span
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              viewport={vp}
-              transition={{ delay: 0.4, type: "spring", stiffness: 400 }}
-              className="w-3 h-3 rounded-full bg-terminal-amber/80"
-            />
-            <motion.span
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              viewport={vp}
-              transition={{ delay: 0.5, type: "spring", stiffness: 400 }}
-              className="w-3 h-3 rounded-full bg-terminal-green/80"
-            />
-            <motion.span
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={vp}
-              transition={{ delay: 0.6 }}
-              className="ml-4 text-terminal-comment text-xs"
+        <AnimatePresence mode="wait">
+          {terminalState === "closed" ? (
+            /* ── Closed state: sleek restart bar ── */
+            <motion.div
+              key="closed"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.4 }}
+              className="bg-card/60 backdrop-blur-xl border border-border rounded-lg p-4 sm:p-6 mb-4 sm:mb-6 shadow-[0_0_40px_-15px_hsl(180,100%,50%,0.08)]"
             >
-              main.java — Backend Portfolio
-            </motion.span>
-          </div>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={vp}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tight mb-4"
-          >
-            Kojo Nhyira<br className="sm:hidden" />{" "}
-            <span className="text-terminal-cyan">Mante-Dankwa</span>
-          </motion.h2>
-
-          <h1 className="text-sm sm:text-lg md:text-xl lg:text-2xl font-semibold text-terminal-cyan/80 leading-tight mb-4">
-            {displayText}
-            <span
-              className={`inline-block w-[2px] h-[1em] bg-terminal-cyan ml-1 align-middle ${
-                showCursor ? "opacity-100" : "opacity-0"
-              }`}
-            />
-          </h1>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={vp}
-            transition={{ delay: 0.8, duration: 0.6 }}
-            className="text-foreground/70 text-xs sm:text-sm md:text-base leading-relaxed mb-6 max-w-2xl"
-          >
-            <span className="text-terminal-magenta">Backend Engineer</span> specializing
-            in enterprise Java ecosystems, Jakarta EE, and high-availability database
-            management.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={vp}
-            transition={{ delay: 1, duration: 0.5 }}
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4"
-          >
-            <a
-              href="#projects"
-              className="group inline-flex items-center gap-2 bg-primary/10 border border-primary/30 text-primary px-5 py-2.5 rounded text-sm hover:bg-primary/20 hover:shadow-[0_0_20px_-5px_hsl(180,100%,50%,0.3)] transition-all duration-300"
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="text-terminal-cyan">
+                      <path d="M4 6l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      <line x1="10" y1="14" x2="16" y2="14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-foreground text-sm font-semibold">Kojo Nhyira Mante-Dankwa</p>
+                    <p className="text-terminal-comment text-[10px]">process terminated — click to restart</p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setTerminalState("open")}
+                  className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 text-primary px-4 py-2 rounded text-xs hover:bg-primary/20 transition-all duration-300 hover:shadow-[0_0_15px_-5px_hsl(180,100%,50%,0.3)]"
+                >
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                    <polygon points="2,1 9,5 2,9" fill="currentColor" />
+                  </svg>
+                  ./restart.sh
+                </button>
+              </div>
+            </motion.div>
+          ) : (
+            /* ── Open / Minimized state ── */
+            <motion.div
+              key="terminal"
+              initial={{ opacity: 0, y: 20, scale: 0.98 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -20, scale: 0.95 }}
+              viewport={vp}
+              transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+              className="bg-card/80 backdrop-blur-xl border border-border rounded-lg mb-4 sm:mb-6 shadow-[0_0_60px_-15px_hsl(180,100%,50%,0.1)] overflow-hidden"
             >
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="opacity-60 group-hover:opacity-100 transition-opacity">
-                <path d="M4 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-              <span className="text-terminal-comment">$</span> Execute: View_Projects
-            </a>
-            <a
-              href="#"
-              className="group inline-flex items-center gap-2 bg-accent/10 border border-accent/30 text-accent px-5 py-2.5 rounded text-sm hover:bg-accent/20 hover:shadow-[0_0_20px_-5px_hsl(45,100%,55%,0.3)] transition-all duration-300"
-            >
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="opacity-60 group-hover:opacity-100 transition-opacity">
-                <path d="M6 2v6M3 5l3 3 3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-              <span className="text-terminal-comment">$</span> Download: Kojo_CV.pdf
-            </a>
-          </motion.div>
-        </motion.div>
+              {/* Title bar — always visible */}
+              <div className="flex items-center gap-2 px-3 sm:px-6 md:px-8 py-3 border-b border-border/50">
+                <button
+                  onClick={() => setTerminalState("closed")}
+                  className="w-3 h-3 rounded-full bg-destructive/80 hover:bg-destructive transition-colors group relative"
+                  title="Close"
+                >
+                  <svg width="7" height="7" viewBox="0 0 7 7" fill="none" className="absolute inset-0 m-auto opacity-0 group-hover:opacity-100 transition-opacity">
+                    <path d="M1 1l5 5M6 1L1 6" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+                  </svg>
+                </button>
+                <button
+                  onClick={() => setTerminalState(terminalState === "minimized" ? "open" : "minimized")}
+                  className="w-3 h-3 rounded-full bg-terminal-amber/80 hover:bg-terminal-amber transition-colors group relative"
+                  title="Minimize"
+                >
+                  <svg width="7" height="7" viewBox="0 0 7 7" fill="none" className="absolute inset-0 m-auto opacity-0 group-hover:opacity-100 transition-opacity">
+                    <line x1="1" y1="3.5" x2="6" y2="3.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+                  </svg>
+                </button>
+                <button
+                  onClick={() => setTerminalState("open")}
+                  className="w-3 h-3 rounded-full bg-terminal-green/80 hover:bg-terminal-green transition-colors group relative"
+                  title="Maximize"
+                >
+                  <svg width="7" height="7" viewBox="0 0 7 7" fill="none" className="absolute inset-0 m-auto opacity-0 group-hover:opacity-100 transition-opacity">
+                    <rect x="1" y="1" width="5" height="5" stroke="currentColor" strokeWidth="1" />
+                  </svg>
+                </button>
+                <span className="ml-3 text-terminal-comment text-xs truncate">
+                  {terminalState === "minimized" ? "main.java — minimized" : "main.java — Backend Portfolio"}
+                </span>
+              </div>
+
+              {/* Content — collapses on minimize */}
+              <AnimatePresence>
+                {terminalState === "open" && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+                    className="overflow-hidden"
+                  >
+                    <div className="p-3 sm:p-6 md:p-8">
+                      <motion.h2
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={vp}
+                        transition={{ delay: 0.3, duration: 0.5 }}
+                        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tight mb-4"
+                      >
+                        Kojo Nhyira<br className="sm:hidden" />{" "}
+                        <span className="text-terminal-cyan">Mante-Dankwa</span>
+                      </motion.h2>
+
+                      <h1 className="text-sm sm:text-lg md:text-xl lg:text-2xl font-semibold text-terminal-cyan/80 leading-tight mb-4">
+                        {displayText}
+                        <span
+                          className={`inline-block w-[2px] h-[1em] bg-terminal-cyan ml-1 align-middle ${
+                            showCursor ? "opacity-100" : "opacity-0"
+                          }`}
+                        />
+                      </h1>
+
+                      <motion.p
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={vp}
+                        transition={{ delay: 0.8, duration: 0.6 }}
+                        className="text-foreground/70 text-xs sm:text-sm md:text-base leading-relaxed mb-6 max-w-2xl"
+                      >
+                        <span className="text-terminal-magenta">Backend Engineer</span> specializing
+                        in enterprise Java ecosystems, Jakarta EE, and high-availability database
+                        management.
+                      </motion.p>
+
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={vp}
+                        transition={{ delay: 1, duration: 0.5 }}
+                        className="flex flex-col sm:flex-row gap-3 sm:gap-4"
+                      >
+                        <a
+                          href="#projects"
+                          className="group inline-flex items-center gap-2 bg-primary/10 border border-primary/30 text-primary px-5 py-2.5 rounded text-sm hover:bg-primary/20 hover:shadow-[0_0_20px_-5px_hsl(180,100%,50%,0.3)] transition-all duration-300"
+                        >
+                          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="opacity-60 group-hover:opacity-100 transition-opacity">
+                            <path d="M4 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                          <span className="text-terminal-comment">$</span> Execute: View_Projects
+                        </a>
+                        <a
+                          href="#"
+                          className="group inline-flex items-center gap-2 bg-accent/10 border border-accent/30 text-accent px-5 py-2.5 rounded text-sm hover:bg-accent/20 hover:shadow-[0_0_20px_-5px_hsl(45,100%,55%,0.3)] transition-all duration-300"
+                        >
+                          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="opacity-60 group-hover:opacity-100 transition-opacity">
+                            <path d="M6 2v6M3 5l3 3 3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                          <span className="text-terminal-comment">$</span> Download: Kojo_CV.pdf
+                        </a>
+                      </motion.div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {/* Minimized peek bar */}
+              <AnimatePresence>
+                {terminalState === "minimized" && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="px-3 sm:px-6 py-3 flex items-center justify-between"
+                  >
+                    <div className="flex items-center gap-2 text-xs text-foreground/50">
+                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="text-terminal-cyan opacity-60">
+                        <path d="M3 4l3 3 3-3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+                      </svg>
+                      <span>Kojo Mante-Dankwa</span>
+                      <span className="text-terminal-comment">·</span>
+                      <span className="text-terminal-cyan">Backend Engineer</span>
+                    </div>
+                    <button
+                      onClick={() => setTerminalState("open")}
+                      className="text-[10px] text-primary/60 hover:text-primary transition-colors"
+                    >
+                      expand ↑
+                    </button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         <motion.div
           initial={{ opacity: 0 }}
