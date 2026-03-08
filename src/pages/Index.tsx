@@ -33,7 +33,7 @@ const Index = () => {
       <ScrollReveal><SkillsSection /></ScrollReveal>
       <ScrollReveal><ExperienceSection /></ScrollReveal>
       <ScrollReveal><ProjectsSection /></ScrollReveal>
-      <ScrollReveal><SystemDesignSection /></ScrollReveal>
+      <ScrollReveal><ProcessSection /></ScrollReveal>
       <CTASection />
       <ScrollReveal><FooterSection /></ScrollReveal>
     </div>
