@@ -62,7 +62,7 @@ const ExperienceSection = () => {
                 key={i}
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false, amount: 0.2 }}
                 transition={{ duration: 0.6, delay: i * 0.25, ease: [0.25, 0.1, 0.25, 1] as const }}
                 className="relative pl-0 sm:pl-8"
               >
