@@ -77,7 +77,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-          className="bg-card/80 backdrop-blur-xl border border-border rounded-lg p-4 sm:p-8 mb-6 shadow-[0_0_60px_-15px_hsl(180,100%,50%,0.1)]"
+          className="bg-card/80 backdrop-blur-xl border border-border rounded-lg p-3 sm:p-6 md:p-8 mb-4 sm:mb-6 shadow-[0_0_60px_-15px_hsl(180,100%,50%,0.1)]"
         >
           <div className="flex items-center gap-2 mb-6">
             <motion.span
