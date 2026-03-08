@@ -3,7 +3,7 @@ import TerminalWindow from "./TerminalWindow";
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section id="about" className="section-light py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Decorative SVG background */}
       <svg className="absolute right-0 top-0 w-64 h-64 opacity-[0.03]" viewBox="0 0 256 256" fill="none">
         <circle cx="128" cy="128" r="120" stroke="hsl(180,100%,50%)" strokeWidth="0.5" />
