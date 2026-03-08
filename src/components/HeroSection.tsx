@@ -13,7 +13,7 @@ interface HeroProps {
 }
 
 const HeroSection = ({ onTerminalOpen }: HeroProps) => {
-  const headline = "> Architecting Robust Backend Systems & Scalable Infrastructure";
+  const headline = "> Engineering Software That Moves Industries Forward";
   const [displayText, setDisplayText] = useState("");
   const [showCursor, setShowCursor] = useState(true);
   const [terminalState, setTerminalState] = useState<TerminalState>("closed");
