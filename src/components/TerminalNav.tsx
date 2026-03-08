@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const TerminalNav = () => {
   const [open, setOpen] = useState(false);
@@ -9,7 +10,7 @@ const TerminalNav = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
       <div className="max-w-5xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between h-12 sm:h-14">
         {/* Signature logo */}
-        <a href="#" className="flex items-center gap-2.5 group">
+        <Link to="/" className="flex items-center gap-2.5 group">
           <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/20 group-hover:border-primary/40 transition-all duration-300 group-hover:shadow-[0_0_15px_-5px_hsl(180,100%,50%,0.3)]">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-terminal-cyan">
               <path d="M4 7l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -25,12 +26,12 @@ const TerminalNav = () => {
               backend.engineer
             </span>
           </div>
-        </a>
+        </Link>
 
         {/* Desktop nav */}
         <div className="hidden sm:flex items-center gap-1">
-          <a
-            href="#blog"
+          <Link
+            to="/blog"
             className="relative text-xs text-foreground/60 hover:text-terminal-cyan px-3 py-1.5 rounded-md hover:bg-primary/5 transition-all duration-300 flex items-center gap-1.5"
           >
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="opacity-50">
@@ -40,7 +41,7 @@ const TerminalNav = () => {
               <line x1="3" y1="8" x2="8" y2="8" stroke="currentColor" strokeWidth="0.8" />
             </svg>
             blog()
-          </a>
+          </Link>
           <div className="w-px h-4 bg-border mx-1" />
           <a
             href="#"
@@ -71,8 +72,8 @@ const TerminalNav = () => {
             className="sm:hidden bg-background/95 backdrop-blur-xl border-b border-border overflow-hidden"
           >
             <div className="px-4 py-3 space-y-1">
-              <a
-                href="#blog"
+              <Link
+                to="/blog"
                 onClick={() => setOpen(false)}
                 className="flex items-center gap-2 text-xs text-foreground/60 hover:text-terminal-cyan py-2 px-2 rounded hover:bg-primary/5 transition-all"
               >
@@ -83,7 +84,7 @@ const TerminalNav = () => {
                   <line x1="3" y1="8" x2="8" y2="8" stroke="currentColor" strokeWidth="0.8" />
                 </svg>
                 blog()
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}
