@@ -54,10 +54,10 @@ const AnimatedGridBackground = () => {
 
     const triggerRandomCells = () => {
       // Randomly light up a wave of cells
-      const count = Math.floor(3 + Math.random() * 8);
+      const count = Math.floor(8 + Math.random() * 15);
       const centerX = Math.random() * canvas.width;
       const centerY = Math.random() * canvas.height;
-      const radius = 150 + Math.random() * 250;
+      const radius = 200 + Math.random() * 350;
 
       for (let i = 0; i < count; i++) {
         const idx = Math.floor(Math.random() * cells.length);
