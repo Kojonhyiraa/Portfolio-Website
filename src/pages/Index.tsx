@@ -5,6 +5,8 @@ import AboutSection from "@/components/AboutSection";
 import SkillsSection from "@/components/SkillsSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import ProjectsSection from "@/components/ProjectsSection";
+import SystemDesignSection from "@/components/SystemDesignSection";
+import CTASection from "@/components/CTASection";
 import FooterSection from "@/components/FooterSection";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -31,6 +33,8 @@ const Index = () => {
       <ScrollReveal><SkillsSection /></ScrollReveal>
       <ScrollReveal><ExperienceSection /></ScrollReveal>
       <ScrollReveal><ProjectsSection /></ScrollReveal>
+      <ScrollReveal><SystemDesignSection /></ScrollReveal>
+      <CTASection />
       <ScrollReveal><FooterSection /></ScrollReveal>
     </div>
   );
