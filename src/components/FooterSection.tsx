@@ -3,9 +3,9 @@ import { Github, Linkedin, Mail } from "lucide-react";
 import { ArcRings } from "./SvgDecorations";
 
 const socialLinks = [
-  { href: "https://github.com/", label: "GitHub", icon: Github },
-  { href: "https://linkedin.com/", label: "LinkedIn", icon: Linkedin },
-  { href: "mailto:kojo@example.com", label: "Email", icon: Mail },
+  { href: "https://github.com/Kojonhyiraa", label: "GitHub", icon: Github },
+  { href: "https://www.linkedin.com/in/kojo-nhyira", label: "LinkedIn", icon: Linkedin },
+  { href: "mailto:kojo.mantedankwa@gmail.com", label: "Email", icon: Mail },
 ];
 
 const FooterSection = () => {
