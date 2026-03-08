@@ -123,7 +123,7 @@ const ProjectsSection = () => {
               whileInView="show"
               viewport={{ once: false, amount: 0.2, margin: "-40px" }}
               whileHover={{ y: -4, transition: { duration: 0.25 } }}
-              className="bg-card/80 backdrop-blur-sm border border-border rounded-lg overflow-hidden hover:border-terminal-green/30 hover:shadow-[0_8px_40px_-10px_hsl(120,100%,45%,0.1)] transition-all duration-400 group"
+              className="bg-card/80 backdrop-blur-sm border border-border rounded-lg overflow-hidden hover:border-terminal-cyan/30 hover:shadow-[0_8px_40px_-10px_hsl(180,100%,50%,0.1)] transition-all duration-400 group"
             >
               {/* File tab bar */}
               <div className="flex items-center gap-1 px-4 py-2.5 bg-background/50 border-b border-border">
