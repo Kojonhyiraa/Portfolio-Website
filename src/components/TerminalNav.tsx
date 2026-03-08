@@ -72,8 +72,8 @@ const TerminalNav = () => {
             className="sm:hidden bg-background/95 backdrop-blur-xl border-b border-border overflow-hidden"
           >
             <div className="px-4 py-3 space-y-1">
-              <a
-                href="#blog"
+              <Link
+                to="/blog"
                 onClick={() => setOpen(false)}
                 className="flex items-center gap-2 text-xs text-foreground/60 hover:text-terminal-cyan py-2 px-2 rounded hover:bg-primary/5 transition-all"
               >
@@ -84,7 +84,7 @@ const TerminalNav = () => {
                   <line x1="3" y1="8" x2="8" y2="8" stroke="currentColor" strokeWidth="0.8" />
                 </svg>
                 blog()
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}
