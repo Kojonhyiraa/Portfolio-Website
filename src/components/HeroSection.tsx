@@ -108,7 +108,17 @@ const HeroSection = () => {
             </motion.span>
           </div>
 
-          <h1 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold text-terminal-cyan leading-tight mb-6">
+          <motion.h2
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.5 }}
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tight mb-4"
+          >
+            Kojo Nhyira<br className="sm:hidden" />{" "}
+            <span className="text-terminal-cyan">Mante-Dankwa</span>
+          </motion.h2>
+
+          <h1 className="text-sm sm:text-lg md:text-xl lg:text-2xl font-semibold text-terminal-cyan/80 leading-tight mb-4">
             {displayText}
             <span
               className={`inline-block w-[2px] h-[1em] bg-terminal-cyan ml-1 align-middle ${
