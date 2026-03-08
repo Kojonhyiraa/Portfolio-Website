@@ -103,7 +103,9 @@ const HeroSection = () => {
                   </div>
                   <div>
                     <p className="text-foreground text-sm font-semibold">Kojo Nhyira Mante-Dankwa</p>
-                    <p className="text-terminal-comment text-[10px]">process terminated — click to restart</p>
+                    <p className="text-terminal-comment text-[10px]">
+                      {launchLabel === "start" ? "ready to initialize — click to start" : "process terminated — click to restart"}
+                    </p>
                   </div>
                 </div>
                 <button
