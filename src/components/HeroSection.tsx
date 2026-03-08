@@ -131,7 +131,7 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2, duration: 0.6 }}
-            className="text-foreground/70 text-sm sm:text-base leading-relaxed mb-8 max-w-2xl"
+            className="text-foreground/70 text-xs sm:text-sm md:text-base leading-relaxed mb-6 max-w-2xl"
           >
             <span className="text-terminal-magenta">Backend Engineer</span> specializing
             in enterprise Java ecosystems, Jakarta EE, and high-availability database
