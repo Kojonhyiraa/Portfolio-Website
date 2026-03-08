@@ -9,7 +9,6 @@ import ProcessSection from "@/components/ProcessSection";
 import CTASection from "@/components/CTASection";
 import FooterSection from "@/components/FooterSection";
 import ScrollReveal from "@/components/ScrollReveal";
-import AnimatedGridBackground from "@/components/AnimatedGridBackground";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const Index = () => {
@@ -28,7 +27,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background scrollbar-thin scroll-smooth relative">
-      <AnimatedGridBackground />
       <TerminalNav />
       <HeroSection onTerminalOpen={() => setTerminalOpened(true)} />
       <ScrollReveal direction="left"><AboutSection /></ScrollReveal>

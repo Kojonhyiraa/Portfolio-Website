@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { ArcRings, OrbitDots } from "./SvgDecorations";
 
 const experiences = [
   {
@@ -31,14 +32,8 @@ const experiences = [
 const ExperienceSection = () => {
   return (
     <section id="experience" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Background circuit SVG */}
-      <svg className="absolute right-0 top-1/4 w-40 h-80 opacity-[0.03]" viewBox="0 0 160 320" fill="none">
-        <path d="M80 0 v80 h60 v80 h-120 v80 h60 v80" stroke="hsl(180,100%,50%)" strokeWidth="1" />
-        <circle cx="80" cy="80" r="4" fill="hsl(180,100%,50%)" />
-        <circle cx="140" cy="160" r="4" fill="hsl(180,100%,50%)" />
-        <circle cx="20" cy="240" r="4" fill="hsl(180,100%,50%)" />
-        <circle cx="80" cy="320" r="4" fill="hsl(180,100%,50%)" />
-      </svg>
+      <ArcRings className="absolute -right-24 top-0 w-[400px] h-[400px] pointer-events-none" />
+      <OrbitDots className="absolute -left-20 bottom-0 w-64 h-64 pointer-events-none" />
 
       <div className="max-w-4xl mx-auto relative">
         <motion.h2
