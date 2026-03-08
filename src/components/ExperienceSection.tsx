@@ -32,8 +32,8 @@ const experiences = [
 const ExperienceSection = () => {
   return (
     <section id="experience" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      <ArcRings className="absolute -right-24 top-0 w-[400px] h-[400px] pointer-events-none" />
-      <OrbitDots className="absolute -left-20 bottom-0 w-64 h-64 pointer-events-none" />
+      <ArcRings className="absolute -right-24 top-0 w-[400px] h-[400px] pointer-events-none animate-slow-spin-reverse" />
+      <OrbitDots className="absolute -left-20 bottom-0 w-64 h-64 pointer-events-none animate-float" />
 
       <div className="max-w-4xl mx-auto relative">
         <motion.h2
