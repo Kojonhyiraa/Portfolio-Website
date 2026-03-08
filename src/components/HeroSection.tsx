@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef } from "react";
-import SpaceScene from "./SpaceScene";
+
 
 const vp = { once: false, amount: 0.3 } as const;
 
