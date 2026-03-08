@@ -3,30 +3,30 @@ import { motion } from "framer-motion";
 const steps = [
   {
     num: "01",
-    title: "Discovery",
+    title: "Scope",
     description:
-      "We talk. I learn about your problem, your constraints, your goals. No jargon, no BS.",
+      "We get on a call. I understand the problem space, your system constraints, and what success looks like. No slides, just straight talk.",
     color: "terminal-cyan",
   },
   {
     num: "02",
-    title: "Diagnosis",
+    title: "Architect",
     description:
-      "I assess the technical landscape and identify what needs to happen. You get a clear path forward.",
+      "I map the technical landscape — what exists, what's missing, what breaks at scale. You get a blueprint, not a pitch deck.",
     color: "terminal-amber",
   },
   {
     num: "03",
-    title: "Delivery",
+    title: "Ship",
     description:
-      "My team and I build, iterate, and ship. Transparent updates. No surprises.",
+      "I build, test, and deploy. You get async updates, working demos, and zero hand-waving. Code ships when it's ready.",
     color: "terminal-green",
   },
   {
     num: "04",
-    title: "Support",
+    title: "Sustain",
     description:
-      "Post-launch monitoring, knowledge transfer, and ongoing advisory. I don't just build and disappear.",
+      "Post-deploy monitoring, runbooks, and knowledge transfer. Systems I build keep running long after the engagement ends.",
     color: "terminal-magenta",
   },
 ];
