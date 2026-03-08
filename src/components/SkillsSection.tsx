@@ -3,7 +3,7 @@ import TerminalWindow from "./TerminalWindow";
 import { SlashLines, Crosshair } from "./SvgDecorations";
 
 const skills = {
-  backend_frameworks: ["Java", "Jakarta EE", "Quarkus", "Python"],
+  backend_frameworks: ["Java", "Jakarta EE", "Quarkus", "Spring Boot", "C#"],
   frontend: ["React JS", "Framer Motion", "TypeScript", "Tailwind CSS"],
   data_infrastructure: ["RDBMS Architecture", "Kubernetes", "AWS", "MySQL"],
   security_systems: ["Network Penetration Testing", "Web Penetration Testing", "API Security"],
