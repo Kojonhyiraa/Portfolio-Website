@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import TerminalWindow from "./TerminalWindow";
+import { RadialBurst, WaveArcs } from "./SvgDecorations";
 
 const AboutSection = () => {
   return (
