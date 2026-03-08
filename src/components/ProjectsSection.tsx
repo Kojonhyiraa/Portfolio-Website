@@ -79,23 +79,8 @@ const cardVariant = {
 const ProjectsSection = () => {
   return (
     <section id="projects" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Hex grid SVG background */}
-      <svg className="absolute left-1/2 top-0 -translate-x-1/2 w-[600px] h-[600px] opacity-[0.02]" viewBox="0 0 600 600" fill="none">
-        {[0, 1, 2, 3].map(row =>
-          [0, 1, 2, 3, 4].map(col => {
-            const x = col * 120 + (row % 2 ? 60 : 0) + 30;
-            const y = row * 100 + 50;
-            return (
-              <polygon
-                key={`${row}-${col}`}
-                points={`${x},${y - 40} ${x + 35},${y - 20} ${x + 35},${y + 20} ${x},${y + 40} ${x - 35},${y + 20} ${x - 35},${y - 20}`}
-                stroke="hsl(120,100%,45%)"
-                strokeWidth="0.5"
-              />
-            );
-          })
-        )}
-      </svg>
+      <HexCluster className="absolute -left-16 top-1/4 w-72 h-72 pointer-events-none" />
+      <WaveArcs className="absolute bottom-0 right-0 w-full h-28 pointer-events-none" />
 
       <div className="max-w-4xl mx-auto relative">
         <motion.h2

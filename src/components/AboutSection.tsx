@@ -5,14 +5,8 @@ import { RadialBurst, WaveArcs } from "./SvgDecorations";
 const AboutSection = () => {
   return (
     <section id="about" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Decorative SVG background */}
-      <svg className="absolute right-0 top-0 w-64 h-64 opacity-[0.03]" viewBox="0 0 256 256" fill="none">
-        <circle cx="128" cy="128" r="120" stroke="hsl(180,100%,50%)" strokeWidth="0.5" />
-        <circle cx="128" cy="128" r="80" stroke="hsl(180,100%,50%)" strokeWidth="0.5" />
-        <circle cx="128" cy="128" r="40" stroke="hsl(180,100%,50%)" strokeWidth="0.5" />
-        <line x1="8" y1="128" x2="248" y2="128" stroke="hsl(180,100%,50%)" strokeWidth="0.3" />
-        <line x1="128" y1="8" x2="128" y2="248" stroke="hsl(180,100%,50%)" strokeWidth="0.3" />
-      </svg>
+      <RadialBurst className="absolute -right-16 -top-16 w-72 h-72 pointer-events-none" />
+      <WaveArcs className="absolute bottom-0 left-0 w-full h-32 pointer-events-none" />
 
       <div className="max-w-4xl mx-auto relative">
         <motion.h2

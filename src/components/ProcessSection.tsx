@@ -42,7 +42,8 @@ const colorVal: Record<string, string> = {
 const ProcessSection = () => {
   return (
     <section id="process" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Subtle vertical line bg */}
+      <RadialBurst className="absolute -right-10 top-10 w-52 h-52 pointer-events-none" />
+      <SlashLines className="absolute -left-10 bottom-0 w-40 h-80 pointer-events-none" />
       <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-border/40 to-transparent hidden md:block" />
 
       <div className="max-w-4xl mx-auto relative">

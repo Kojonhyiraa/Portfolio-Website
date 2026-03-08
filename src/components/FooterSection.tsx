@@ -11,11 +11,7 @@ const socialLinks = [
 const FooterSection = () => {
   return (
     <footer className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-border relative overflow-hidden">
-      {/* Decorative terminal prompt SVG */}
-      <svg className="absolute left-0 bottom-0 w-full h-32 opacity-[0.015]" viewBox="0 0 1200 120" fill="none" preserveAspectRatio="none">
-        <path d="M0 60 Q300 0 600 60 Q900 120 1200 60" stroke="hsl(180,100%,50%)" strokeWidth="1" />
-        <path d="M0 80 Q300 20 600 80 Q900 140 1200 80" stroke="hsl(45,100%,55%)" strokeWidth="0.5" />
-      </svg>
+      <ArcRings className="absolute -left-24 -bottom-24 w-[400px] h-[400px] pointer-events-none rotate-180" />
 
       <div className="max-w-4xl mx-auto relative">
         <motion.div

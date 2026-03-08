@@ -51,12 +51,8 @@ const line = {
 const SkillsSection = () => {
   return (
     <section id="skills" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      <svg className="absolute left-0 bottom-0 w-48 h-48 opacity-[0.03]" viewBox="0 0 200 200" fill="none">
-        <path d="M0 200 L200 0" stroke="hsl(45,100%,55%)" strokeWidth="0.5" />
-        <path d="M0 150 L150 0" stroke="hsl(45,100%,55%)" strokeWidth="0.5" />
-        <path d="M0 100 L100 0" stroke="hsl(45,100%,55%)" strokeWidth="0.5" />
-        <path d="M0 50 L50 0" stroke="hsl(45,100%,55%)" strokeWidth="0.5" />
-      </svg>
+      <SlashLines className="absolute -left-10 top-0 w-48 h-full pointer-events-none" />
+      <Crosshair className="absolute -right-6 bottom-10 w-24 h-24 pointer-events-none" />
 
       <div className="max-w-4xl mx-auto relative">
         <motion.h2
