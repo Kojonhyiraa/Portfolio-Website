@@ -69,7 +69,7 @@ const HeroSection = ({ onTerminalOpen }: HeroProps) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={vp}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="mb-2 text-terminal-comment text-xs sm:text-sm flex items-center gap-2"
+          className="mb-2 text-gray-500 text-xs sm:text-sm flex items-center gap-2"
         >
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="opacity-60">
             <path d="M2 2a1 1 0 011-1h6l4 4v9a1 1 0 01-1 1H3a1 1 0 01-1-1V2z" stroke="currentColor" strokeWidth="1" />
