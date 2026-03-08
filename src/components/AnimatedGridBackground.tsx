@@ -105,7 +105,7 @@ const AnimatedGridBackground = () => {
       }
 
       // Trigger sweeps less frequently
-      if (time - lastSweep > 300 + Math.random() * 200) {
+      if (time - lastSweep > 120 + Math.random() * 100) {
         triggerSweep();
         lastSweep = time;
       }
