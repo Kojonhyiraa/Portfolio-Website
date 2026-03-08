@@ -29,13 +29,13 @@ const Index = () => {
     <div className="min-h-screen bg-background scrollbar-thin scroll-smooth">
       <TerminalNav />
       <HeroSection onTerminalOpen={() => setTerminalOpened(true)} />
-      <ScrollReveal><AboutSection /></ScrollReveal>
-      <ScrollReveal><SkillsSection /></ScrollReveal>
-      <ScrollReveal><ExperienceSection /></ScrollReveal>
-      <ScrollReveal><ProjectsSection /></ScrollReveal>
-      <ScrollReveal><ProcessSection /></ScrollReveal>
+      <ScrollReveal direction="left"><AboutSection /></ScrollReveal>
+      <ScrollReveal direction="right"><SkillsSection /></ScrollReveal>
+      <ScrollReveal direction="left"><ExperienceSection /></ScrollReveal>
+      <ScrollReveal direction="right"><ProjectsSection /></ScrollReveal>
+      <ScrollReveal direction="left"><ProcessSection /></ScrollReveal>
       <CTASection />
-      <ScrollReveal><FooterSection /></ScrollReveal>
+      <ScrollReveal direction="right"><FooterSection /></ScrollReveal>
     </div>
   );
 };

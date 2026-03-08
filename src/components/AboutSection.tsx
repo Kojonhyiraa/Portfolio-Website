@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import TerminalWindow from "./TerminalWindow";
 
 const AboutSection = () => {
   return (
@@ -30,15 +31,8 @@ const AboutSection = () => {
           <span className="text-foreground">);</span>
         </motion.h2>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-card/80 backdrop-blur-sm border border-border rounded-lg p-5 sm:p-8 shadow-[0_4px_30px_-10px_hsl(180,100%,50%,0.05)] hover:shadow-[0_4px_40px_-10px_hsl(180,100%,50%,0.1)] transition-shadow duration-500"
-        >
+        <TerminalWindow title="about_me.md — Backend Portfolio">
           <div className="flex items-center gap-3 mb-4">
-            {/* Code bracket SVG */}
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="text-terminal-cyan opacity-50">
               <path d="M7 4L2 10l5 6M13 4l5 6-5 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
@@ -84,7 +78,7 @@ const AboutSection = () => {
             </svg>
             <span className="text-terminal-line-number text-xs">12&nbsp;&nbsp;*/</span>
           </div>
-        </motion.div>
+        </TerminalWindow>
       </div>
     </section>
   );
