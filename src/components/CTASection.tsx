@@ -54,7 +54,9 @@ const CTASection = () => {
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <a
-            href="mailto:kojo@example.com?subject=Let's%20Build%20Something"
+            href="https://cal.com/kojo-nhyira-mante-dankwa-fzksxp/15min"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group inline-flex items-center gap-3 bg-primary/10 border border-primary/30 text-primary px-6 py-3 rounded-lg text-sm font-semibold hover:bg-primary/20 hover:shadow-[0_0_30px_-5px_hsl(180,100%,50%,0.3)] transition-all duration-300"
           >
             <CalendarCheck size={18} />
