@@ -10,8 +10,9 @@ const CTASection = () => {
     <>
       <section id="cta" className="py-20 sm:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="absolute top-[58%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[520px] h-[520px] rounded-full bg-terminal-cyan/14 blur-[130px]" />
-          <div className="absolute top-[62%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px] rounded-full bg-primary/10 blur-[120px]" />
+          <div className="absolute top-[61%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[620px] h-[520px] rounded-[58%_42%_62%_38%/64%_44%_56%_36%] bg-terminal-cyan/20 blur-[115px]" />
+          <div className="absolute top-[64%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] h-[470px] rounded-[45%_55%_38%_62%/60%_36%_64%_40%] bg-primary/14 blur-[95px]" />
+          <div className="absolute top-[67%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[190px] h-[280px] rounded-[48%_52%_40%_60%/66%_34%_62%_38%] bg-terminal-cyan/16 blur-[60px]" />
         </div>
 
         <div className="max-w-3xl mx-auto relative z-10 text-center">
