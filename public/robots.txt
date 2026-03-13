@@ -12,3 +12,6 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Replace YOUR_DOMAIN with your actual deployed URL
+Sitemap: https://YOUR_DOMAIN/sitemap.xml
