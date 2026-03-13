@@ -1,7 +1,16 @@
 import { motion } from "framer-motion";
 import { ArcRings, OrbitDots } from "./SvgDecorations";
 
-const experiences = [
+interface Experience {
+  role: string;
+  company: string;
+  period: string;
+  description: string;
+  tags: string[];
+  current?: boolean;
+}
+
+const experiences: Experience[] = [
   {
     role: "Software Engineer",
     company: "eTranzact Ghana",
@@ -95,7 +104,7 @@ const ExperienceSection = () => {
                         <p className="text-terminal-green text-xs">@ {exp.company}</p>
                       </div>
                     </div>
-                    {(exp as any).current && (
+                    {exp.current && (
                       <span className="text-terminal-comment text-xs font-mono flex items-center gap-1">
                         <span className="flex items-center gap-1">
                           <span className="relative flex h-2 w-2">

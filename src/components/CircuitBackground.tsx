@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-interface Node {
+interface CircuitNode {
   x: number;
   y: number;
   vx: number;
@@ -22,14 +22,16 @@ const CircuitBackground = () => {
     if (!ctx) return;
 
     let animId: number;
-    let nodes: Node[] = [];
+    let nodes: CircuitNode[] = [];
     const nodeCount = 70;
     const connectionDist = 140;
 
     const resize = () => {
-      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
-      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = Math.floor(canvas.offsetWidth * dpr);
+      canvas.height = Math.floor(canvas.offsetHeight * dpr);
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.scale(dpr, dpr);
     };
 
     const init = () => {
@@ -165,9 +167,7 @@ const CircuitBackground = () => {
 
     init();
     animate();
-    window.addEventListener("resize", () => {
-      resize();
-    });
+    window.addEventListener("resize", resize);
 
     return () => {
       cancelAnimationFrame(animId);

@@ -9,7 +9,6 @@ Personal portfolio site built with React, TypeScript, Vite, Tailwind CSS, and sh
 - Vite 5
 - Tailwind CSS
 - shadcn/ui + Radix UI
-- Vitest + Testing Library
 
 ## Getting Started
 
@@ -38,8 +37,6 @@ The app will be available at `http://localhost:8080`.
 - `npm run build` — build production assets
 - `npm run preview` — preview the production build
 - `npm run lint` — run ESLint
-- `npm run test` — run tests once
-- `npm run test:watch` — run tests in watch mode
 
 ## Project Structure
 
@@ -47,7 +44,6 @@ The app will be available at `http://localhost:8080`.
 - `src/pages` — route-level pages
 - `src/hooks` — custom hooks
 - `src/lib` — utilities
-- `src/test` — test setup and specs
 
 ## Deployment
 
