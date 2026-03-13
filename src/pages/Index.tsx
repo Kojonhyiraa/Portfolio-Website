@@ -9,12 +9,19 @@ import ProcessSection from "@/components/ProcessSection";
 import CTASection from "@/components/CTASection";
 import FooterSection from "@/components/FooterSection";
 import ScrollReveal from "@/components/ScrollReveal";
+import StartupLoader from "@/components/StartupLoader";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const Index = () => {
   const [terminalOpened, setTerminalOpened] = useState(false);
+  const [showLoader, setShowLoader] = useState(true);
   const isMobile = useIsMobile();
   const lockScroll = isMobile && !terminalOpened;
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => setShowLoader(false), 4600);
+    return () => window.clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     if (lockScroll) {
@@ -26,17 +33,20 @@ const Index = () => {
   }, [lockScroll]);
 
   return (
-    <div className="min-h-screen bg-background scrollbar-thin scroll-smooth relative overflow-x-hidden">
-      <TerminalNav />
-      <HeroSection onTerminalOpen={() => setTerminalOpened(true)} />
-      <ScrollReveal direction="left"><AboutSection /></ScrollReveal>
-      <ScrollReveal direction="right"><SkillsSection /></ScrollReveal>
-      <ScrollReveal direction="left"><ExperienceSection /></ScrollReveal>
-      <ScrollReveal direction="right"><ProjectsSection /></ScrollReveal>
-      <ScrollReveal direction="left"><ProcessSection /></ScrollReveal>
-      <CTASection />
-      <ScrollReveal direction="right"><FooterSection /></ScrollReveal>
-    </div>
+    <>
+      {showLoader && <StartupLoader />}
+      <div className="min-h-screen bg-background scrollbar-thin scroll-smooth relative overflow-x-hidden">
+        <TerminalNav />
+        <HeroSection onTerminalOpen={() => setTerminalOpened(true)} />
+        <ScrollReveal direction="left"><AboutSection /></ScrollReveal>
+        <ScrollReveal direction="right"><SkillsSection /></ScrollReveal>
+        <ScrollReveal direction="left"><ExperienceSection /></ScrollReveal>
+        <ScrollReveal direction="right"><ProjectsSection /></ScrollReveal>
+        <ScrollReveal direction="left"><ProcessSection /></ScrollReveal>
+        <CTASection />
+        <ScrollReveal direction="right"><FooterSection /></ScrollReveal>
+      </div>
+    </>
   );
 };
 

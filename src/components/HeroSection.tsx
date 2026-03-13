@@ -16,7 +16,9 @@ const HeroSection = ({ onTerminalOpen }: HeroProps) => {
   const headline = "> Engineering Software That Moves Industries Forward";
   const [displayText, setDisplayText] = useState("");
   const [showCursor, setShowCursor] = useState(true);
-  const [terminalState, setTerminalState] = useState<TerminalState>("closed");
+  const [terminalState, setTerminalState] = useState<TerminalState>(() =>
+    typeof window !== "undefined" && window.innerWidth < 768 ? "closed" : "open"
+  );
   const [launchLabel, setLaunchLabel] = useState<LaunchLabel>("start");
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: false, amount: 0.4 });
